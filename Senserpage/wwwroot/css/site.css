@@ -1,0 +1,138 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+/* My addition */
+.textBlock {
+    /*background-color: black;*/
+    color: white;
+}
+
+.textSpan {
+    text-align: center;
+}
+
+.textSpanBlue {
+    text-align: center;
+    color: dodgerblue;
+}
+
+.fontSize56 {
+    font-size: 64px;
+    font-family: "Yeseva One";
+}
+
+.fontSize32 {
+    font-size: 40px;
+    font-family: "Yeseva One";
+}
+
+.fontSize24 {
+    font-size: 30px;
+    font-family: "Yeseva One";
+}
+
+.fontSize20 {
+    font-size: 20px;
+    font-family: "Yeseva One";
+}
+
+.commonText {
+    /*background-color: antiquewhite;*/
+    background-image: url(../images/senserbg1.png);
+}
+
+.emptydiv {
+    height: 20px;
+}
+
+.upperImage {
+    height: 700px;
+    background-image: url(../images/senserMain.jpg);
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.shadow {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.goodposition {
+    z-index: 0;
+    position: relative;
+}
+
+.pricegreen {
+    color: forestgreen;
+}

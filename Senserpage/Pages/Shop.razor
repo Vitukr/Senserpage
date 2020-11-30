@@ -1,0 +1,82 @@
+﻿
+@inject Senserpage.Data.IGoods goods
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div>
+            <table class=" container-fluid upperImage" cellpadding="5" cellspacing="0">
+                <tr class="shadow">
+                    <td>
+                        <div class="textBlock">
+                            <div class="textSpan fontSize56">
+                                <strong>
+                                    <span style="color: rgb(235, 235, 235);"><b>SEN</b></span><span style="color: rgb(0, 114, 188);"><b>SER</b></span>
+                                </strong>
+                            </div>
+                            <div class="textSpan fontSize32">
+                                <em><b>Электрические печи</b></em>
+                            </div>
+                            <div class="textSpan fontSize24">
+                                <em>Турецкое качество</em>
+                            </div>
+                            <div class="textSpan fontSize24">
+                                <em>Лучшие товары для вашего дома</em>
+                            </div>                    
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            </div>
+            <div class="commonText">
+                <div class="textSpan fontSize24">
+                    <em>Электрические печи нового Турецкого бренда SENSER обладают высоким качеством и выполнены в современном дизайне.</em>
+                </div>
+                <div class="textSpan fontSize24">
+                    <em>Это незаменимые помощники на вашей кухне в загородном доме и, особенно, на даче.</em>
+                </div>
+                <div class="textSpan fontSize24">
+                    <em>Благодаря последним техническим решениям в сочетании с простотой в эксплуатации,</em>
+                </div>
+                <div class="textSpan fontSize24">
+                    <em>печи удовлетворят даже самых требовательных потребителей.</em>
+                </div>
+                <div class="textSpan fontSize24">
+                    <em>Электрические печи SENSER - это легкость в эксплуатации с неизменно отличным результатом:</em>
+                </div>
+                <div class="textSpan fontSize24">
+                    <em>ваша выпечка будет радовать близких, а приготовленные блюда вызывать восхищение.</em>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col"> 
+            <div class="emptydiv">
+            </div>
+        </div>
+    </div>
+    <div class="row" id="ourgoods">
+        <div class="col">   
+            <div class="textSpanBlue fontSize24">
+                <em>Электрические настольные печи SENSER</em>
+            </div>
+        </div>
+    </div>
+    @for(int i = 0; i < Goods.Count; i++)
+    {
+        var position = i % 2 == 0 ? "right" : "left";
+    <Good Position="@position" Name="@Goods[i].Name" Price="@Goods[i].Price" Attributes="@Goods[i].Attributes" ImageLinks="@Goods[i].ImageLinks" ></Good>
+
+    <div class="emptydiv"></div>
+    }
+</div>
+
+@code {
+    public List<Models.Good> Goods { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        Goods = goods.GetGoods();
+    }
+}

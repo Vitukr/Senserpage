@@ -1,0 +1,125 @@
+﻿@using Microsoft.AspNetCore.Components
+
+<div class="row goodposition">
+    @if(Position == "left")
+    {
+        <div class="col">
+            <div class="pull-right">
+            <div class="text-left">
+                <div><b>@Name</b></div>
+                <div><span class="pricegreen">@Price</span> грн.</div>
+                <div>
+                    <ul>
+                    @for(int i = 0; i < Attributes.Count; i++)
+                    {
+                        <li>@Attributes[i]</li>
+                    }
+                    </ul>
+                </div>
+            </div>            
+            <div>
+                <button class="btn btn-primary" @onclick="OpenModal"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span>В корзину</span></button>                
+            </div> 
+            </div>
+        </div>
+        <div class="col">
+            <div class="text-center"><img width="400px" src="@MainImage" /></div>
+            <div class="text-center">
+            @for(int i = 0; i < ImageLinks.Count; i++)
+            {
+                if(MainImage != ImageLinks[i])
+                {
+                <img width="100px" src="@ImageLinks[i]" />
+                }
+            }
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="col">
+            <div class="text-center"><img width="400px" src="@MainImage" /></div>
+            <div class="text-center">
+            @for(int i = 0; i < ImageLinks.Count; i++)
+            {
+                if(MainImage != ImageLinks[i])
+                {
+                <img width="100px" src="@ImageLinks[i]" />
+                }
+            }
+            </div>
+        </div>
+        <div class="col">
+            <div class="pull-left">
+            <div class="text-left">
+                <div><b>@Name</b></div>
+                <div><span class="pricegreen">@Price</span> грн.</div>
+                <div>
+                    <ul>
+                    @for(int i = 0; i < Attributes.Count; i++)
+                    {
+                        <li>@Attributes[i]</li>
+                    }
+                    </ul>
+                </div>
+            </div>            
+            <div>
+                <button class="btn btn-primary" @onclick="OpenModal"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span>В корзину</span></button>
+            </div> 
+            </div>
+        </div>
+    }    
+</div>
+
+<ModalPopUp Title="Инфо" IsOpened="IsOpened">
+    <ModalBody>
+        <h4>Товар @Name добавлен в корзину.</h4>
+        <h4>Цена товара @Price грн.</h4>
+    </ModalBody>
+    <ModalFooter>
+        <button class="btn btn-primary" @onclick="CloseModal">Закрыть</button>
+        <button class="btn btn-primary" @onclick="CloseModal">В корзину</button>
+    </ModalFooter>
+</ModalPopUp>
+
+@code {
+    [Parameter]
+    public string Position { get; set; }
+    [Parameter]
+    public string Name { get; set; }
+    [Parameter]
+    public decimal Price { get; set; }
+    [Parameter]
+    public List<string> Attributes { get; set; }
+    [Parameter]
+    public List<string> ImageLinks { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> IsOpenedChanged { get; set; }
+
+    private async Task UpdateIsOpened()
+    {
+        IsOpened = !IsOpened;
+        await IsOpenedChanged.InvokeAsync(IsOpened);
+    }
+
+    string MainImage { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        MainImage = ImageLinks.Count > 0 ? ImageLinks[0] : "";
+    }
+
+    [Parameter]
+    public bool IsOpened { get; set; }
+
+    void OpenModal()
+    {
+        IsOpened = true; 
+    }
+
+    void CloseModal()
+    {        
+        IsOpened = false; 
+    }
+}

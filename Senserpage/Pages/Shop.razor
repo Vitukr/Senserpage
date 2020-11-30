@@ -1,6 +1,31 @@
 ﻿
 @inject Senserpage.Data.IGoods goods
 
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand"><span style="color: rgb(235, 235, 235);"><b>SEN</b></span><span style="color: rgb(0, 114, 188);"><b>SER</b></span></a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#senserfooter">Контакты</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#" @onclick="OpenModal">Оплата и доставка</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#ourgoods">Товары</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 <div class="container-fluid">
     <div class="row">
         <div class="col">
@@ -72,11 +97,58 @@
     }
 </div>
 
+    <footer id="senserfooter" class="border-top footer text-muted">
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <a class="nav-link text-dark">SENSER</a>
+            <a class="nav-link text-dark">г. Киев; ул. Мурманская, 3</a>
+            <a class="nav-link text-dark" href="mailto:sensershops@gmail.com?subject=Senser">sensershops@gmail.com</a>
+            <a class="nav-link text-dark" href="tel:380991644955">+38(099)164-49-55</a>
+        </div>
+    </footer>
+
+<ModalCommon Title="Оплата и доставка" IsOpened="IsOpened">
+    <ModalBody>
+        <p>
+            - Доставка по Украине осуществляется перевозчиком "МистЭкспресс" (за ваш счёт) на отделение в вашем городе или адресно с оформлением наложенного платежа. Средний тариф доставки по Украине 80-100 грн
+        </p>
+        <p>
+            - В случае 100% предоплаты за товар доставка выполняется полностью за счёт отправителя. Оплата за товар, в таком случае, возможна на карту "ПриватБанка" либо "МоноБанка".
+        </p>
+        <p>
+            - При оформлении наложенного платежа - предоплата за товар 150 грн (сумма наложенного платежа, в таком случае, уменьшается).
+        </p>
+        <p>
+            - Расчёт за товар происходит после осмотра товара на складе "МистЭкспресса" либо с курьером службы доставки (в случае адресной доставки).
+        </p>
+        <p>
+            - Товар на 100% застрахован. В случае обнаружения механических повреждений при осмотре товара, вы оставляете товар у перевозчика и вам возвращается предоплата за товар в полном размере.
+        </p>
+        <p>
+            - Обращаем ваше внимание на то, что за перевод денег (наложенный платёж) перевозчик берёт комиссию в размере: 2% от суммы перевода + 20 грн
+        </p>
+    </ModalBody>
+    <ModalFooter>
+        <button class="btn btn-primary" @onclick="CloseModal">Закрыть</button>
+    </ModalFooter>
+</ModalCommon>
+
 @code {
     public List<Models.Good> Goods { get; set; }
 
     protected override void OnParametersSet()
     {
         Goods = goods.GetGoods();
+    }
+
+    public bool IsOpened { get; set; }
+
+    void OpenModal()
+    {
+        IsOpened = true; 
+    }
+
+    void CloseModal()
+    {        
+        IsOpened = false; 
     }
 }

@@ -1,0 +1,43 @@
+﻿
+<div class="blazor-modal @cssClass" @onclick="() => IsOpened = false">
+    <div class="blazor-modal-content" @onclick:stopPropagation>
+        <div class="blazor-modal-header">
+            <h5 class="blazor-modal-title">@Title</h5> 
+            <span class="blazor-modal-close-button" @onclick="() => IsOpened = false">X</span>
+        </div>
+        <div class="blazor-modal-body">
+            @ModalBody
+        </div>
+        <div class="blazor-modal-footer">
+            @ModalFooter
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public RenderFragment ModalBody { get; set; }
+
+    [Parameter]
+    public RenderFragment ModalFooter { get; set; }
+
+    [Parameter]
+    public bool IsOpened { get; set; }
+
+    string cssClass => IsOpened ? "show" : "hide";
+}
+
+@*- Доставка по Украине осуществляется перевозчиком "МистЭкспресс" (за ваш счёт) на отделение в вашем городе или адресно с оформлением наложенного платежа. Средний тариф доставки по Украине 80-100 грн
+
+- В случае 100% предоплаты за товар доставка выполняется полностью за счёт отправителя. Оплата за товар, в таком случае, возможна на карту "ПриватБанка" либо "МоноБанка".
+
+- При оформлении наложенного платежа - предоплата за товар 150 грн (сумма наложенного платежа, в таком случае, уменьшается).
+
+- Расчёт за товар происходит после осмотра товара на складе "МистЭкспресса" либо с курьером службы доставки (в случае адресной доставки).
+
+- Товар на 100% застрахован. В случае обнаружения механических повреждений при осмотре товара, вы оставляете товар у перевозчика и вам возвращается предоплата за товар в полном размере.
+
+ - Обращаем ваше внимание на то, что за перевод денег (наложенный платёж) перевозчик берёт комиссию в размере: 2% от суммы перевода + 20 грн*@

@@ -3,7 +3,7 @@
     <div class="blazor-modal-content" @onclick:stopPropagation>
         <div class="blazor-modal-header">
             <h5 class="blazor-modal-title">@Title</h5> 
-            <span class="blazor-modal-close-button" @onclick="CloseCart">X</span>
+            <span class="blazor-modal-close-button" @onclick="() => IsOpened = false">X</span>
         </div>
         <div class="blazor-modal-body">
             @ModalBody

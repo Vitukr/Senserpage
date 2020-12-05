@@ -1,9 +1,9 @@
 ﻿
-<div class="blazor-modal @cssClass" @onclick="() => IsOpened = false">
-    <div class="blazor-modal-content1" @onclick:stopPropagation>
+<div class="container-fluid blazor-modal @cssClass" @onclick="Close">
+    <div class="blazor-modal-content-contacts" @onclick:stopPropagation>
         <div class="blazor-modal-header">
             <h5 class="blazor-modal-title">@Title</h5> 
-            <span class="blazor-modal-close-button" @onclick="() => IsOpened = false">X</span>
+            <span class="blazor-modal-close-button" @onclick="Close">X</span>
         </div>
         <div class="blazor-modal-body">
             @ModalBody
@@ -28,4 +28,13 @@
     public bool IsOpened { get; set; }
 
     string cssClass => IsOpened ? "show" : "hide";
+
+    [Parameter]
+    public EventCallback DoIsOpened { get; set; }
+
+    void Close()
+    {
+        IsOpened = false;
+        DoIsOpened.InvokeAsync();
+    }
 }

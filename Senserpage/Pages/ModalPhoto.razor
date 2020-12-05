@@ -1,9 +1,9 @@
 ﻿
-<div class="blazor-modal @cssClass" @onclick="ClosePhotos">
+<div class="container-fluid blazor-modal @cssClass" @onclick="ClosePhotos">
     <div class="blazor-modal-content-photos" @onclick:stopPropagation>        
         <div>
             <span class="text-left" @onclick="NextLeft"><i class="fa fas fa-chevron-left" aria-hidden="true"></i></span>
-            <span class="modalPhoto text-center"><img class="modalPhoto text-center" src="@Link"/></span>
+            <span class="modalPhoto text-center"><img class="modalPhoto text-center" src="@Link" @onclick="NextRight"/></span>
             <span class="text-right" @onclick="NextRight"><i class="fa fas fa-chevron-right" aria-hidden="true"></i></span>
         </div>
         @ModalBody
@@ -22,9 +22,6 @@
 
     [Parameter]
     public bool IsOpened { get; set; }
-
-    [Parameter]
-    public EventCallback DoIsOpened { get; set; }
 
     string cssClass => IsOpened ? "show" : "hide";
 
@@ -65,6 +62,9 @@
             }
         }
     }
+
+    [Parameter]
+    public EventCallback DoIsOpened { get; set; }
 
     void ClosePhotos()
     {

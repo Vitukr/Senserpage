@@ -1,6 +1,8 @@
-﻿
+﻿@using Senserpage.Pages
 @inject Senserpage.Data.IGoods goods
-
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
@@ -26,6 +28,9 @@
             </div>
         </nav>
     </header>
+        </div>
+    </div>
+</div>
 <div class="container-fluid">
     <div class="row">
         <div class="col">
@@ -96,17 +101,63 @@
     <div class="emptydiv"></div>
     }
 </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+    @*<header>*@
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand"><span style="color: rgb(235, 235, 235);"><b>SEN</b></span><span style="color: rgb(0, 114, 188);"><b>SER</b></span></a>
 
-    <footer id="senserfooter" class="border-top footer text-muted">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#senserfooter">Контакты</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#" @onclick="OpenModal">Оплата и доставка</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#ourgoods">Товары</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    @*</header>*@
+</div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div id="senserfooter" class="col">
+    @*<footer id="senserfooter" class="border-top footer text-muted">*@
         <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
             <a class="nav-link text-dark">SENSER</a>
             <a class="nav-link text-dark">г. Киев; ул. Мурманская, 3</a>
             <a class="nav-link text-dark" href="mailto:sensershops@gmail.com?subject=Senser">sensershops@gmail.com</a>
             <a class="nav-link text-dark" href="tel:380991644955">+38(099)164-49-55</a>
         </div>
-    </footer>
+    @*</footer>*@
+        </div>
+    </div>
+</div>
 
-<ModalCommon Title="Оплата и доставка" IsOpened="IsOpened">
+<CartModal Title="Корзина" IsOpened="@CartOpened" DoIsOpened="@CloseModalCart">
+    <ModalBody>
+        
+    </ModalBody>
+    <ModalFooter>
+        <button class="btn btn-primary" @onclick="CloseModalCart">Закрыть</button>
+        <button class="btn btn-primary" @onclick="CloseModalCart">Закрыть</button>
+    </ModalFooter>
+</CartModal>
+
+<ModalCommon Title="Оплата и доставка" IsOpened="IsOpened" DoIsOpened="@CloseModal">
     <ModalBody>
         <p>
             - Доставка по Украине осуществляется перевозчиком "МистЭкспресс" (за ваш счёт) на отделение в вашем городе или адресно с оформлением наложенного платежа. Средний тариф доставки по Украине 80-100 грн
@@ -150,5 +201,17 @@
     void CloseModal()
     {        
         IsOpened = false; 
+    }
+
+    public bool CartOpened { get; set; }
+
+    void OpenModalCart()
+    {
+        CartOpened = true; 
+    }
+
+    void CloseModalCart()
+    {        
+        CartOpened = false; 
     }
 }

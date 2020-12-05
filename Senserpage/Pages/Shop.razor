@@ -1,11 +1,11 @@
-﻿@using Senserpage.Data
+﻿@using Senserpage.Models
 @inject Senserpage.Data.IGoods goods
 
-<div class="container-fluid">
+<div class="container-fluid bg-dark">
     <div class="row">
         <div class="col">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow">
             <div class="container">
                 <a class="navbar-brand"><span style="color: rgb(235, 235, 235);"><b>SEN</b></span><span style="color: rgb(0, 114, 188);"><b>SER</b></span></a>
 
@@ -13,16 +13,22 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="#senserfooter">Контакты</a>
+                            <a class="nav-link text-white" href="#senserfooter">Контакты</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="#" @onclick="OpenModal">Оплата и доставка</a>
+                            <a class="nav-link text-white" href="#" @onclick="OpenModal">Оплата и доставка</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="#ourgoods">Товары</a>
+                            <a class="nav-link text-white" href="#ourgoods">Товары</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#" @onclick="OpenModalCart">Корзина</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#" @onclick="OpenModalCall">Заказать звонок</a>
                         </li>
                     </ul>
                 </div>
@@ -60,22 +66,22 @@
             </table>
             </div>
             <div class="commonText">
-                <div class="textSpan fontSize24">
+                <div class="textSpan fontSize20">
                     <em>Электрические печи нового Турецкого бренда SENSER обладают высоким качеством и выполнены в современном дизайне.</em>
                 </div>
-                <div class="textSpan fontSize24">
+                <div class="textSpan fontSize20">
                     <em>Это незаменимые помощники на вашей кухне в загородном доме и, особенно, на даче.</em>
                 </div>
-                <div class="textSpan fontSize24">
+                <div class="textSpan fontSize20">
                     <em>Благодаря последним техническим решениям в сочетании с простотой в эксплуатации,</em>
                 </div>
-                <div class="textSpan fontSize24">
+                <div class="textSpan fontSize20">
                     <em>печи удовлетворят даже самых требовательных потребителей.</em>
                 </div>
-                <div class="textSpan fontSize24">
+                <div class="textSpan fontSize20">
                     <em>Электрические печи SENSER - это легкость в эксплуатации с неизменно отличным результатом:</em>
                 </div>
-                <div class="textSpan fontSize24">
+                <div class="textSpan fontSize20">
                     <em>ваша выпечка будет радовать близких, а приготовленные блюда вызывать восхищение.</em>
                 </div>
             </div>
@@ -106,7 +112,7 @@
     <div class="row">
         <div class="col">
     @*<header>*@
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow">
             <div class="container">
                 <a class="navbar-brand"><span style="color: rgb(235, 235, 235);"><b>SEN</b></span><span style="color: rgb(0, 114, 188);"><b>SER</b></span></a>
 
@@ -114,16 +120,22 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="#senserfooter">Контакты</a>
+                            <a class="nav-link text-white" href="#senserfooter">Контакты</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="#" @onclick="OpenModal">Оплата и доставка</a>
+                            <a class="nav-link text-white" href="#" @onclick="OpenModal">Оплата и доставка</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="#ourgoods">Товары</a>
+                            <a class="nav-link text-white" href="#ourgoods">Товары</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#" @onclick="OpenModalCart">Корзина</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#" @onclick="OpenModalCall">Заказать звонок</a>
                         </li>
                     </ul>
                 </div>
@@ -133,15 +145,15 @@
 </div>
     </div>
 </div>
-<div class="container-fluid">
+<div class="container-fluid bg-dark">
     <div class="row">
         <div id="senserfooter" class="col">
     @*<footer id="senserfooter" class="border-top footer text-muted">*@
-        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <a class="nav-link text-dark">SENSER</a>
-            <a class="nav-link text-dark">г. Киев; ул. Мурманская, 3</a>
-            <a class="nav-link text-dark" href="mailto:sensershops@gmail.com?subject=Senser">sensershops@gmail.com</a>
-            <a class="nav-link text-dark" href="tel:380991644955">+38(099)164-49-55</a>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center bg-dark">
+            @*<a class="nav-link text-white">SENSER</a>*@
+            <a class="nav-link text-white">г. Киев; ул. Мурманская, 3</a>
+            <a class="nav-link text-white" href="mailto:sensershops@gmail.com?subject=Senser">sensershops@gmail.com</a>
+            <a class="nav-link text-white" href="tel:380991644955">+38(099)164-49-55</a>
         </div>
     @*</footer>*@
         </div>
@@ -205,6 +217,23 @@
     </ModalFooter>
 </ModalCommon>
 
+<CallmeModal Title="Закажите обратный звонок!" IsOpened="CallOpened" DoIsOpened="@CloseModalCall">
+    <ModalBody>
+        <EditForm Model="@callMeForm" OnValidSubmit="@HandleValidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <InputText id="name" @bind-Value="callMeForm.Name" placeholder="Имя"/>
+            <InputText id="phone" @bind-Value="callMeForm.Phone" placeholder="Телефон"/>
+
+            <button class="btn btn-primary" type="submit">Позвоните мне</button>
+        </EditForm>
+    </ModalBody>
+    <ModalFooter>
+        <button class="btn btn-primary" @onclick="CloseModalCall">Закрыть</button>
+    </ModalFooter>
+</CallmeModal>
+
 @code {
     public List<Models.Good> Goods { get; set; }
 
@@ -235,5 +264,23 @@
     void CloseModalCart()
     {        
         CartOpened = false; 
+    }
+
+    public bool CallOpened { get; set; }
+
+    void OpenModalCall()
+    {
+        CallOpened = true; 
+    }
+
+    void CloseModalCall()
+    {        
+        CallOpened = false; 
+    }
+
+    private CallMeForm callMeForm = new CallMeForm();
+
+    private void HandleValidSubmit()
+    {
     }
 }

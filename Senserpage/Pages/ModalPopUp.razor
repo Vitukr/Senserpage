@@ -1,5 +1,5 @@
 ﻿
-<div class="blazor-modal @cssClass" @onclick="() => IsOpened = false">
+<div class="blazor-modal @cssClass" @onclick="CloseCart">
     <div class="blazor-modal-content" @onclick:stopPropagation>
         <div class="blazor-modal-header">
             <h5 class="blazor-modal-title">@Title</h5> 
@@ -29,4 +29,13 @@
     public bool IsOpened { get; set; }
 
     string cssClass => IsOpened ? "show" : "hide";
+
+    [Parameter]
+    public EventCallback DoIsOpened { get; set; }
+
+    void CloseCart()
+    {
+        IsOpened = false;
+        DoIsOpened.InvokeAsync();
+    }
 }

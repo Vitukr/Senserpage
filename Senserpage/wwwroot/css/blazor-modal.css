@@ -20,8 +20,10 @@
     overflow: hidden;
 }
 
-.blazor-modal-content1 {
-    width: 650px;
+.blazor-modal-content-photos {
+    max-height: 100%;
+    max-width: 70%;
+    text-align: center;
     margin: auto;
     margin-top: 100px;
     background-color: white;

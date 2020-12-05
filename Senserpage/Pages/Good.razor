@@ -80,12 +80,13 @@
     }    
 </div>
 
-<ModalPhoto IsOpened="ShowPhoto" Link="@LinkPhoto" Links="@LinkPhotos">
+<ModalPhoto DoIsOpened="@ShowPhotos" IsOpened="@ShowPhoto" Link="@LinkPhoto" Links="@LinkPhotos">
     <ModalBody>
+        <button class="btn btn-primary" @onclick="ShowPhotos">Закрыть</button>    
     </ModalBody>
 </ModalPhoto>
 
-<ModalPopUp Title="Инфо" IsOpened="IsOpened">
+<ModalPopUp Title="Инфо" IsOpened="@IsOpened" DoIsOpened="@CloseModal">
     <ModalBody>
         <h4>Товар @Name добавлен в корзину.</h4>
         <h4>Цена товара @Price грн.</h4>
@@ -139,8 +140,13 @@
     void ShowBigPhoto(string link, List<string> list)
     {
         Debug.WriteLine($"Logging: {link}");
-        ShowPhoto = true;
         LinkPhoto = link;
         LinkPhotos = list;
+        ShowPhoto = true;
+    }
+
+    void ShowPhotos()
+    {
+        ShowPhoto = false;
     }
 }

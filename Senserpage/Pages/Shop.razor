@@ -1,5 +1,6 @@
-﻿@using Senserpage.Pages
+﻿@using Senserpage.Data
 @inject Senserpage.Data.IGoods goods
+
 <div class="container-fluid">
     <div class="row">
         <div class="col">
@@ -35,7 +36,7 @@
     <div class="row">
         <div class="col">
             <div>
-            <table class=" container-fluid upperImage" cellpadding="5" cellspacing="0">
+            <table class="container-fluid upperImage" cellpadding="5" cellspacing="0">
                 <tr class="shadow">
                     <td>
                         <div class="textBlock">
@@ -149,11 +150,32 @@
 
 <CartModal Title="Корзина" IsOpened="@CartOpened" DoIsOpened="@CloseModalCart">
     <ModalBody>
-        
+            <table class="container-fluid" cellpadding="5" cellspacing="0">
+                <thead>
+                    <tr>
+                        <td class="textSpan fontSize20">Фото</td>
+                        <td class="textSpan fontSize20">Наименование</td>
+                        <td class="textSpan fontSize20">Цена</td>
+                        <td class="textSpan fontSize20">Количество</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(int i = 0; i < Senserpage.Data.Goods.CartGoods.Count; i++)
+                    {
+                        var good = Senserpage.Data.Goods.CartGoods[i];
+                    <tr>
+                        <td><img width="100px" src="@good.PhotoLink"/></td>
+                        <td class="textSpan fontSize20"><span>@good.Name</span></td>
+                        <td class="textSpan fontSize20"><span>@good.Price грн.</span></td>
+                        <td class="textSpan fontSize20"><span>@good.Number</span></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
     </ModalBody>
     <ModalFooter>
         <button class="btn btn-primary" @onclick="CloseModalCart">Закрыть</button>
-        <button class="btn btn-primary" @onclick="CloseModalCart">Закрыть</button>
+        <button class="btn btn-primary" @onclick="CloseModalCart">Оформить</button>
     </ModalFooter>
 </CartModal>
 

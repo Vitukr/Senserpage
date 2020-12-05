@@ -8,6 +8,12 @@ namespace Senserpage.Data
 {
     public class Goods : IGoods
     {
+        public static bool OpenCart { set; get; }
+
+        //public bool GetOpenCart()
+        //{
+        //    return OpenCart;
+        //}
         public List<Good> GetGoods()
         {
             List<Good> list = new List<Good>();
@@ -180,5 +186,16 @@ namespace Senserpage.Data
 
             return list;
         }
+
+        public static List<CartGood> CartGoods { get; set; } = new List<CartGood>();        
+    }
+
+    public class CartGood : ICartGood
+    {
+        public string Name { get; set; }
+        public string PhotoLink { get; set; }
+        public int Number { get; set; }
+        public decimal Price { get; set; }
+        public decimal TotalPrice { get; set; }
     }
 }

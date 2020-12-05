@@ -1,5 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Components
 @using System.Diagnostics
+@using Senserpage.Data
+
+@inject Senserpage.Data.IGoods goods
 
 <div class="row goodposition">
     @if(Position == "left")
@@ -19,7 +22,10 @@
                 </div>
             </div>            
             <div>
-                <button class="btn btn-primary" @onclick="OpenModal"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span>В корзину</span></button>                
+                <button class="btn btn-primary" @onclick="OpenModal">
+                <i class="fa fa-shopping-cart" aria-hidden="true">
+                </i> <span>Купить</span>
+                </button>                
             </div> 
             </div>
         </div>
@@ -33,8 +39,8 @@
             {
                 if(MainImage != ImageLinks[i])
                 {
-                    var str = ImageLinks[i];
-                    <Photo Width="100px" Link="@ImageLinks[i]" OnClick="@(() => ShowBigPhoto(str, ImageLinks))"></Photo>
+                    var strLink = ImageLinks[i];
+                    <Photo Width="100px" Link="@ImageLinks[i]" OnClick="@(() => ShowBigPhoto(strLink, ImageLinks))"></Photo>
                 }
             }
             </div>
@@ -52,8 +58,8 @@
             {
                 if(MainImage != ImageLinks[i])
                 {
-                    var str = ImageLinks[i];
-                    <Photo Width="100px" Link="@ImageLinks[i]" OnClick="@(() => ShowBigPhoto(str, ImageLinks))"></Photo>
+                    var strLink = ImageLinks[i];
+                    <Photo Width="100px" Link="@ImageLinks[i]" OnClick="@(() => ShowBigPhoto(strLink, ImageLinks))"></Photo>
                 }
             }
             </div>
@@ -73,7 +79,10 @@
                 </div>
             </div>            
             <div>
-                <button class="btn btn-primary" @onclick="OpenModal"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span>В корзину</span></button>
+                <button class="btn btn-primary" @onclick="OpenModal">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i> 
+                <span>Купить</span>
+                </button>
             </div> 
             </div>
         </div>
@@ -86,14 +95,13 @@
     </ModalBody>
 </ModalPhoto>
 
-<ModalPopUp Title="Инфо" IsOpened="@IsOpened" DoIsOpened="@CloseModal">
+<ModalPopUp Title="Инфо" IsOpened="@IsOpened" DoIsOpened="@CloseModal" NameGood="@Name" PriceGood="@Price" LinkGood="@MainImage" >
     <ModalBody>
         <h4>Товар @Name добавлен в корзину.</h4>
         <h4>Цена товара @Price грн.</h4>
     </ModalBody>
     <ModalFooter>
         <button class="btn btn-primary" @onclick="CloseModal">Закрыть</button>
-        <button class="btn btn-primary" @onclick="CloseModal">В корзину</button>
     </ModalFooter>
 </ModalPopUp>
 
@@ -148,5 +156,10 @@
     void ShowPhotos()
     {
         ShowPhoto = false;
+    }
+
+    void ShowCart()
+    {
+        CloseModal();
     }
 }

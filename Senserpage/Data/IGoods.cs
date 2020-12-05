@@ -10,4 +10,13 @@ namespace Senserpage.Data
     {
         List<Good> GetGoods();
     }
+
+    interface ICartGood
+    {
+        string Name { get; set; }
+        string PhotoLink { get; set; }
+        int Number { get; set; }
+        decimal Price { get; set; }
+        decimal TotalPrice { get; set; }
+    }
 }

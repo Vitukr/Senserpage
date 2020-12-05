@@ -1,11 +1,11 @@
 ﻿
 <div class="container-fluid blazor-modal @cssClass" @onclick="CloseCart">
-    <div class="blazor-modal-content" @onclick:stopPropagation>
+    <div class="blazor-modal-content-cart" @onclick:stopPropagation>
         <div class="blazor-modal-header">
             <h5 class="blazor-modal-title">@Title</h5> 
             <span class="blazor-modal-close-button" @onclick="() => IsOpened = false">X</span>
         </div>
-        <div class="blazor-modal-body">
+        <div class="blazor-modal-body-cart">
             @ModalBody
         </div>
         <div class="blazor-modal-footer">

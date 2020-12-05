@@ -26,6 +26,7 @@ namespace Senserpage
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddScoped<Data.IGoods, Data.Goods>();
+            services.AddScoped<Data.ICartGood, Data.CartGood>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

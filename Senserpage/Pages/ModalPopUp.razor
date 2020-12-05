@@ -1,4 +1,6 @@
-﻿
+﻿@using Senserpage.Data
+@inject Senserpage.Data.IGoods goods
+
 <div class="container-fluid blazor-modal @cssClass" @onclick="CloseCart">
     <div class="blazor-modal-content" @onclick:stopPropagation>
         <div class="blazor-modal-header">
@@ -10,9 +12,41 @@
         </div>
         <div class="blazor-modal-footer">
             @ModalFooter
+            <button class="btn btn-primary" @onclick="AddToCart">Купить</button>
         </div>
     </div>
 </div>
+
+<CartModal Title="Корзина" IsOpened="@CartOpened" DoIsOpened="@CloseModalCart">
+    <ModalBody>
+            <table class="container-fluid" cellpadding="5" cellspacing="0">
+                <thead>
+                    <tr>
+                        <td class="textSpan fontSize20">Фото</td>
+                        <td class="textSpan fontSize20">Наименование</td>
+                        <td class="textSpan fontSize20">Цена</td>
+                        <td class="textSpan fontSize20">Количество</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(int i = 0; i < Senserpage.Data.Goods.CartGoods.Count; i++)
+                    {
+                        var good = Senserpage.Data.Goods.CartGoods[i];
+                    <tr>
+                        <td><img width="100px" src="@good.PhotoLink"/></td>
+                        <td class="textSpan fontSize20"><span>@good.Name</span></td>
+                        <td class="textSpan fontSize20"><span>@good.Price грн.</span></td>
+                        <td class="textSpan fontSize20"><span>@good.Number</span></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+    </ModalBody>
+    <ModalFooter>
+        <button class="btn btn-primary" @onclick="CloseModalCart">Закрыть</button>
+        <button class="btn btn-primary" @onclick="CloseModalCart">Оформить</button>
+    </ModalFooter>
+</CartModal>
 
 
 @code {
@@ -37,5 +71,56 @@
     {
         IsOpened = false;
         DoIsOpened.InvokeAsync();
+    }
+
+    [Parameter]
+    public CartGood Good { get; set; } = new CartGood();
+
+    void AddToCart()
+    {
+        var g = Senserpage.Data.Goods.CartGoods.Any(r => r.Name == NameGood);
+        if (g)
+        {
+            for(int i = 0; i < Senserpage.Data.Goods.CartGoods.Count; i++)
+            {
+                if(Senserpage.Data.Goods.CartGoods[i].Name == NameGood)
+                {
+                    Senserpage.Data.Goods.CartGoods[i].Number++;
+                }
+            }
+        }
+        else
+        {
+            Senserpage.Data.Goods.CartGoods.Add(new CartGood()
+            {
+                Name = NameGood,
+                Price = PriceGood,
+                PhotoLink = LinkGood,
+                Number = 1
+            });
+        }
+        CloseCart();
+        OpenModalCart();
+    }
+
+    [Parameter]
+    public string NameGood { get; set; }
+
+    [Parameter]
+    public decimal PriceGood { get; set; }
+
+    [Parameter]
+    public string LinkGood { get; set; }
+
+    public bool CartOpened { get; set; }
+
+    void OpenModalCart()
+    {
+        CartOpened = true; 
+    }
+
+    void CloseModalCart()
+    {        
+        CartOpened = false; 
     }
 }

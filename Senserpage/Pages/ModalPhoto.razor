@@ -1,0 +1,64 @@
+﻿
+<div class="blazor-modal @cssClass" @onclick="() => IsOpened = false">
+    <div class="blazor-modal-content1" @onclick:stopPropagation>        
+        <div>
+            <img @onclick="NextLeft" width="30px" src="@Link"/>
+            <img width="500px" src="@Link"/>
+            <img @onclick="NextRight" width="30px" src="@Link"/>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Link { get; set; }
+
+    [Parameter]
+    public List<string> Links { get; set; }
+
+    [Parameter]
+    public RenderFragment ModalBody { get; set; }
+
+    [Parameter]
+    public bool IsOpened { get; set; }
+
+    string cssClass => IsOpened ? "show" : "hide";
+
+    void NextLeft()
+    {
+        for(int i = 0; i < Links.Count; i++)
+        {
+            if(Link == Links[i])
+            {
+                if(i == 0)
+                {
+                    Link = Links[Links.Count - 1];
+                }
+                else
+                {
+                    Link = Links[i - 1];
+                }
+                break;
+            }
+        }
+    }
+
+    void NextRight()
+    {
+        for(int i = 0; i < Links.Count; i++)
+        {
+            if(Link == Links[i])
+            {
+                if(i == Links.Count - 1)
+                {
+                    Link = Links[0];
+                }
+                else
+                {
+                    Link = Links[i + 1];
+                }
+                break;
+            }
+        }
+    }
+}

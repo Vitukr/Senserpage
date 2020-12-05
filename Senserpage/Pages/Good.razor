@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using System.Diagnostics
 
 <div class="row goodposition">
     @if(Position == "left")
@@ -23,13 +24,17 @@
             </div>
         </div>
         <div class="col">
-            <div class="text-center"><img width="400px" src="@MainImage" /></div>
+            <div class="text-center">
+            <Photo Width="400px" Link="@MainImage" OnClick="@(() => ShowBigPhoto(MainImage, ImageLinks))">                
+            </Photo>
+            </div>
             <div class="text-center">
             @for(int i = 0; i < ImageLinks.Count; i++)
             {
                 if(MainImage != ImageLinks[i])
                 {
-                <img width="100px" src="@ImageLinks[i]" />
+                    var str = ImageLinks[i];
+                    <Photo Width="100px" Link="@ImageLinks[i]" OnClick="@(() => ShowBigPhoto(str, ImageLinks))"></Photo>
                 }
             }
             </div>
@@ -38,13 +43,17 @@
     else
     {
         <div class="col">
-            <div class="text-center"><img width="400px" src="@MainImage" /></div>
+            <div class="text-center">
+            <Photo Width="400px" Link="@MainImage" OnClick="@(() => ShowBigPhoto(MainImage, ImageLinks))">                
+            </Photo>
+            </div>
             <div class="text-center">
             @for(int i = 0; i < ImageLinks.Count; i++)
             {
                 if(MainImage != ImageLinks[i])
                 {
-                <img width="100px" src="@ImageLinks[i]" />
+                    var str = ImageLinks[i];
+                    <Photo Width="100px" Link="@ImageLinks[i]" OnClick="@(() => ShowBigPhoto(str, ImageLinks))"></Photo>
                 }
             }
             </div>
@@ -71,6 +80,11 @@
     }    
 </div>
 
+<ModalPhoto IsOpened="ShowPhoto" Link="@LinkPhoto" Links="@LinkPhotos">
+    <ModalBody>
+    </ModalBody>
+</ModalPhoto>
+
 <ModalPopUp Title="Инфо" IsOpened="IsOpened">
     <ModalBody>
         <h4>Товар @Name добавлен в корзину.</h4>
@@ -94,15 +108,6 @@
     [Parameter]
     public List<string> ImageLinks { get; set; }
 
-    [Parameter]
-    public EventCallback<bool> IsOpenedChanged { get; set; }
-
-    private async Task UpdateIsOpened()
-    {
-        IsOpened = !IsOpened;
-        await IsOpenedChanged.InvokeAsync(IsOpened);
-    }
-
     string MainImage { get; set; }
 
     protected override void OnParametersSet()
@@ -121,5 +126,21 @@
     void CloseModal()
     {        
         IsOpened = false; 
+    }
+
+    [Parameter]
+    public bool ShowPhoto { get; set; }
+
+    [Parameter]
+    public string LinkPhoto { get; set; }
+
+    public List<string> LinkPhotos { get; set; }
+
+    void ShowBigPhoto(string link, List<string> list)
+    {
+        Debug.WriteLine($"Logging: {link}");
+        ShowPhoto = true;
+        LinkPhoto = link;
+        LinkPhotos = list;
     }
 }

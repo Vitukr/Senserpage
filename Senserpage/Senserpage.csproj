@@ -8,4 +8,8 @@
     <Folder Include="wwwroot\icons\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="2.10.0" />
+  </ItemGroup>
+
 </Project>

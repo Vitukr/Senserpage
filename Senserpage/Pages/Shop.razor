@@ -1,5 +1,8 @@
-﻿@using Senserpage.Models
+﻿
+@using Senserpage.Models
 @inject Senserpage.Data.IGoods goods
+@using System.Net.Http
+@inject HttpClient http
 
 <div class="container-fluid bg-dark">
     <div class="row">
@@ -280,7 +283,13 @@
 
     private CallMeForm callMeForm = new CallMeForm();
 
-    private void HandleValidSubmit()
+    public async Task HandleValidSubmit()
     {
+        @*var httpContent = new StringContent(callMeForm.Name + callMeForm.Phone);
+        await Http.PostAsync("/SendEmail", httpContent);*@
+        if(http != null)
+        {
+        var response = await http.GetAsync("https://localhost:44370/SendEmail?name=" + callMeForm.Name + "&phone=" + callMeForm.Phone); 
+        }
     }
 }

@@ -1,9 +1,9 @@
 ﻿
-<div class="container-fluid blazor-modal @cssClass" @onclick="CloseCart">
+<div class="container-fluid blazor-modal @cssClass" @onclick="CloseCallMe">
     <div class="blazor-modal-content-cart" @onclick:stopPropagation>
         <div class="blazor-modal-header">
             <h5 class="blazor-modal-title">@Title</h5> 
-            <span class="blazor-modal-close-button" @onclick="() => IsOpened = false">X</span>
+            <span class="blazor-modal-close-button" @onclick="CloseCallMe">X</span>
         </div>
         <div class="blazor-modal-body-cart">
             @ModalBody
@@ -34,7 +34,7 @@
     [Parameter]
     public EventCallback DoIsOpened { get; set; }
 
-    void CloseCart()
+    void CloseCallMe()
     {
         IsOpened = false;
         DoIsOpened.InvokeAsync();

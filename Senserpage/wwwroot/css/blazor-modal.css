@@ -9,7 +9,7 @@
 }
 
 .blazor-modal-content {
-    width: 650px;
+    max-width: 650px;
     margin: auto;
     margin-top: 300px;
     background-color: white;
@@ -17,11 +17,11 @@
     -webkit-box-shadow: 6px 4px 38px -21px rgba(0,0,0,0.75);
     -moz-box-shadow: 6px 4px 38px -21px rgba(0,0,0,0.75);
     box-shadow: 6px 4px 38px -21px rgba(0,0,0,0.75);
-    overflow: hidden;
+    overflow: auto;
 }
 
 .blazor-modal-content-contacts {
-    width: 650px;
+    max-width: 650px;
     margin: auto;
     margin-top: 50px;
     background-color: white;
@@ -29,7 +29,7 @@
     -webkit-box-shadow: 6px 4px 38px -21px rgba(0,0,0,0.75);
     -moz-box-shadow: 6px 4px 38px -21px rgba(0,0,0,0.75);
     box-shadow: 6px 4px 38px -21px rgba(0,0,0,0.75);
-    overflow: hidden;
+    overflow: auto;
 }
 
 .blazor-modal-content-photos {
@@ -57,6 +57,7 @@
     -webkit-box-shadow: 6px 4px 38px -21px rgba(0,0,0,0.75);
     -moz-box-shadow: 6px 4px 38px -21px rgba(0,0,0,0.75);
     box-shadow: 6px 4px 38px -21px rgba(0,0,0,0.75);
+    overflow: auto;
 }
 
 .show {

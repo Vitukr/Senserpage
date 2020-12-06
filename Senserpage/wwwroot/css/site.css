@@ -161,3 +161,7 @@ body {
 .menuColor {
     background-color: cornflowerblue;
 }
+
+.pointer {
+    cursor: pointer;
+}

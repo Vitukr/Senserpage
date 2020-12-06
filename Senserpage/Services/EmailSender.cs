@@ -11,17 +11,17 @@ namespace Senserpage.Services
     {
         public string Name { get; set; }
         public string Phone { get; set; }
-        public async Task SendEmailAsync(string email, string subject, string message)
+        public async Task SendEmailAsync(MimeMessage emailMessage)
         {
-            var emailMessage = new MimeMessage();
+            //var emailMessage = new MimeMessage();
 
-            emailMessage.From.Add(new MailboxAddress("Sensershop", "senseradmin@sensershop.vysoft.top"));
-            emailMessage.To.Add(new MailboxAddress("", email));
-            emailMessage.Subject = subject;
-            emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
-            {
-                Text = message
-            };
+            //emailMessage.From.Add(new MailboxAddress("Sensershop", "senseradmin@sensershop.vysoft.top"));
+            //emailMessage.To.Add(new MailboxAddress("", email));
+            //emailMessage.Subject = subject;
+            //emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
+            //{
+            //    Text = message
+            //};
 
             using (var client = new SmtpClient())
             {
@@ -35,31 +35,6 @@ namespace Senserpage.Services
                 await client.SendAsync(emailMessage);
 
                 await client.DisconnectAsync(true);
-            }
-        }
-
-        private bool sendEmail;
-        public bool SendEmail
-        {
-            get
-            {
-                return sendEmail;
-            }
-            set
-            {
-                sendEmail = value;
-                NotifyDataChanged();
-            }
-        }
-
-        public event Action<string, string> OnChange;
-
-        private void NotifyDataChanged()
-        {
-            if (SendEmail == true)
-            {
-                SendEmail = false;
-                SendEmailAsync("vyarema@gmail.com", "Test", Name + Phone).GetAwaiter().GetResult();
             }
         }
     }

@@ -46,7 +46,8 @@ namespace Senserpage.Pages
             }
 
             CallMeForm callMeForm = JsonConvert.DeserializeObject<CallMeForm>(input);
-            await emailSender.SendEmailAsync("vyarema@gmail.com", "Test", callMeForm.Name + " : " + callMeForm.Phone);
+            string message = $@"<h2>Позвоните мне.</h2><br /><h2>Имя: {callMeForm.Name}</h2><br /><h2>Телефон: {callMeForm.Phone}</h2>";
+            await emailSender.SendEmailAsync("sensershops@gmail.com", "С сайта Senser shop", message);
         }
 
         //[BindProperty]
@@ -61,7 +62,8 @@ namespace Senserpage.Pages
             }
 
             CallMeForm callMeForm = JsonConvert.DeserializeObject<CallMeForm>(input);
-            await emailSender.SendEmailAsync("vyarema@gmail.com", "Test", callMeForm.Name + " : " + callMeForm.Phone);
+            string message = $@"<h2>Позвоните мне.</h2><br /><h2>Имя: {callMeForm.Name}</h2><br /><h2>Телефон: {callMeForm.Phone}</h2>";
+            await emailSender.SendEmailAsync("vyarema@gmail.com", "С сайта Senser shop", message);
 
             //return View();
             //return LocalRedirect("/Index");

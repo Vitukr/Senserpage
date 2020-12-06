@@ -225,6 +225,8 @@
 
 <CallmeModal Title="Закажите обратный звонок!" IsOpened="CallOpened" DoIsOpened="@CloseModalCall">
     <ModalBody>
+        @*<div>@Output</div>
+        <div>@Request</div>*@
         <EditForm Model="@callMeForm" OnValidSubmit="@HandleValidSubmit">
             <DataAnnotationsValidator />
             <ValidationSummary />
@@ -236,6 +238,7 @@
         </EditForm>
     </ModalBody>
     <ModalFooter>
+        <div>@Sent</div>
         <button class="btn btn-primary" @onclick="CloseModalCall">Закрыть</button>
     </ModalFooter>
 </CallmeModal>
@@ -277,22 +280,31 @@
 
     void OpenModalCall()
     {
+        Sent = null;
         CallOpened = true; 
     }
 
     void CloseModalCall()
     {        
+        Sent = null;
         CallOpened = false; 
     }
+
+    private string Output { get; set; }
+    private string Request { get; set; }
 
     private string BaseUri { get; set; }
 
     private CallMeForm callMeForm = new CallMeForm();
 
+    private string Sent { get; set; }
+
     public async Task HandleValidSubmit()
     {
+        Sent = null;
         if (httpClient != null)
         {
+            await Task.Delay(1);
             @*string output = JsonConvert.SerializeObject(callMeForm);
             var httpContent = new StringContent(output, Encoding.UTF8, "application/json");
             var baseaddress = navigator.BaseUri; // "https://localhost:44370/SendEmail"
@@ -300,8 +312,18 @@
             var resultPost = await responsePost.Content.ReadAsStringAsync();*@
 
             string output = JsonConvert.SerializeObject(callMeForm);
+            Output = output;
             var requeststring = navigator.BaseUri + "SendEmail?input=" + output;
+            Request = requeststring;
             var responseGet = await httpClient.GetAsync(requeststring); 
+            if(responseGet.IsSuccessStatusCode)
+            {
+                Sent = "Сообщение отправлено.";
+            }
+            else
+            {
+                Sent = "Сообщение не отправлено.";
+            }
 
             @*string output = JsonConvert.SerializeObject(callMeForm);
             HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Post, "https://localhost:44370/SendEmail");

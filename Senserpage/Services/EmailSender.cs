@@ -15,7 +15,7 @@ namespace Senserpage.Services
         {
             var emailMessage = new MimeMessage();
 
-            emailMessage.From.Add(new MailboxAddress("Администрация сайта", "senseradmin@sensershop.vysoft.top"));
+            emailMessage.From.Add(new MailboxAddress("Sensershop", "senseradmin@sensershop.vysoft.top"));
             emailMessage.To.Add(new MailboxAddress("", email));
             emailMessage.Subject = subject;
             emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)

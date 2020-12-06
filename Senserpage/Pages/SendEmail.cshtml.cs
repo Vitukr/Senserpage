@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
+using Senserpage.Models;
 using Senserpage.Services;
 
 namespace Senserpage.Pages
@@ -17,9 +19,7 @@ namespace Senserpage.Pages
         {
             emailSender = emailSender1;
         }
-        //[BindProperty]
-        //public InputModel Input { get; set; }
-
+          
         //public class InputModel
         //{
         //    [Required]
@@ -38,18 +38,33 @@ namespace Senserpage.Pages
 
         //    public string Code { get; set; }
         //}
-        public async Task OnGet(string name, string phone)
+        public async Task OnGet(string input)
         {
-            var test = name;
-            var test1 = phone;
-            await emailSender.SendEmailAsync("vyarema@gmail.com", "Test", name + phone);
+            if (!ModelState.IsValid)
+            {
+                return;
+            }
+
+            CallMeForm callMeForm = JsonConvert.DeserializeObject<CallMeForm>(input);
+            await emailSender.SendEmailAsync("vyarema@gmail.com", "Test", callMeForm.Name + " : " + callMeForm.Phone);
         }
 
-        public async Task<IActionResult> Index()
+        //[BindProperty]
+        //public CallMeForm Input { get; set; }
+        public async Task OnPostAsync(string input)
         {
             await Task.Delay(1);
+
+            if (!ModelState.IsValid)
+            {
+                return;
+            }
+
+            CallMeForm callMeForm = JsonConvert.DeserializeObject<CallMeForm>(input);
+            await emailSender.SendEmailAsync("vyarema@gmail.com", "Test", callMeForm.Name + " : " + callMeForm.Phone);
+
             //return View();
-            return LocalRedirect("/Index");
+            //return LocalRedirect("/Index");
         }
     }
 }

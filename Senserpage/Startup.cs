@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Senserpage
@@ -29,6 +30,7 @@ namespace Senserpage
             services.AddScoped<Data.IGoods, Data.Goods>();
             services.AddScoped<Data.ICartGood, Data.CartGood>();
             services.AddScoped<Services.EmailSender>();
+            //services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

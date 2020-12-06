@@ -1,8 +1,11 @@
-﻿
+﻿@using Microsoft.AspNetCore.Components
+@using Newtonsoft.Json
 @using Senserpage.Models
 @inject Senserpage.Data.IGoods goods
 @using System.Net.Http
-@inject HttpClient http
+@inject HttpClient httpClient
+@using System.Text
+@inject NavigationManager navigator
 
 <div class="container-fluid bg-dark">
     <div class="row">
@@ -242,6 +245,7 @@
 
     protected override void OnParametersSet()
     {
+        BaseUri = navigator.BaseUri;
         Goods = goods.GetGoods();
     }
 
@@ -281,15 +285,30 @@
         CallOpened = false; 
     }
 
+    private string BaseUri { get; set; }
+
     private CallMeForm callMeForm = new CallMeForm();
 
     public async Task HandleValidSubmit()
     {
-        @*var httpContent = new StringContent(callMeForm.Name + callMeForm.Phone);
-        await Http.PostAsync("/SendEmail", httpContent);*@
-        if(http != null)
+        if (httpClient != null)
         {
-        var response = await http.GetAsync("https://localhost:44370/SendEmail?name=" + callMeForm.Name + "&phone=" + callMeForm.Phone); 
+            @*string output = JsonConvert.SerializeObject(callMeForm);
+            var httpContent = new StringContent(output, Encoding.UTF8, "application/json");
+            var baseaddress = navigator.BaseUri; // "https://localhost:44370/SendEmail"
+            var responsePost = await httpClient.PostAsync(navigator.BaseUri, httpContent);
+            var resultPost = await responsePost.Content.ReadAsStringAsync();*@
+
+            string output = JsonConvert.SerializeObject(callMeForm);
+            var requeststring = navigator.BaseUri + "SendEmail?input=" + output;
+            var responseGet = await httpClient.GetAsync(requeststring); 
+
+            @*string output = JsonConvert.SerializeObject(callMeForm);
+            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Post, "https://localhost:44370/SendEmail");
+            //requestMessage.Headers.Add("Authorization", "key=AAAAG...:APA91bH7U...");
+            requestMessage.Content = new StringContent(output, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = await httpClient.SendAsync(requestMessage);*@
         }
     }
 }

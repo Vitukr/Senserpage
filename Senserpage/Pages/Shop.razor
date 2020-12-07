@@ -227,7 +227,7 @@
     <ModalBody>
         @*<div>@Output</div>
         <div>@Request</div>*@
-        <EditForm Model="@callMeForm" OnValidSubmit="@HandleValidSubmit">
+        <EditForm Model="@callMeForm" OnValidSubmit="@SubmitCallMe">
             <DataAnnotationsValidator />
             <ValidationSummary />
 
@@ -299,7 +299,7 @@
 
     private string Sent { get; set; }
 
-    public async Task HandleValidSubmit()
+    public async Task SubmitCallMe()
     {
         Sent = null;
         if (httpClient != null)
@@ -308,15 +308,20 @@
             @*string output = JsonConvert.SerializeObject(callMeForm);
             var httpContent = new StringContent(output, Encoding.UTF8, "application/json");
             var baseaddress = navigator.BaseUri; // "https://localhost:44370/SendEmail"
-            var responsePost = await httpClient.PostAsync(navigator.BaseUri, httpContent);
+            var response = await httpClient.PostAsync(navigator.BaseUri, httpContent);
             var resultPost = await responsePost.Content.ReadAsStringAsync();*@
 
             string output = JsonConvert.SerializeObject(callMeForm);
             Output = output;
             var requeststring = navigator.BaseUri + "SendEmail?input=" + output;
             Request = requeststring;
-            var responseGet = await httpClient.GetAsync(requeststring); 
-            if(responseGet.IsSuccessStatusCode)
+            var response = await httpClient.GetAsync(requeststring); 
+
+            @*HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, requeststring);
+            requestMessage.Content = new StringContent(output, Encoding.UTF8, "application/json");
+            var response = await httpClient.SendAsync(requestMessage);*@
+
+            if(response.IsSuccessStatusCode)
             {
                 Sent = "Сообщение отправлено.";
             }
@@ -324,13 +329,6 @@
             {
                 Sent = "Сообщение не отправлено.";
             }
-
-            @*string output = JsonConvert.SerializeObject(callMeForm);
-            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Post, "https://localhost:44370/SendEmail");
-            //requestMessage.Headers.Add("Authorization", "key=AAAAG...:APA91bH7U...");
-            requestMessage.Content = new StringContent(output, Encoding.UTF8, "application/json");
-
-            HttpResponseMessage response = await httpClient.SendAsync(requestMessage);*@
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Senserpage.Models
         public string Name { get; set; }
 
         [Required]
-        [StringLength(18, ErrorMessage = "Много цифр в номере телефона")]
+        [StringLength(20, ErrorMessage = "Много цифр в номере телефона")]
         public string Phone { get; set; }
     }
 }

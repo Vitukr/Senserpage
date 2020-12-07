@@ -304,15 +304,15 @@
         Sent = null;
         if (httpClient != null)
         {
-            await Task.Delay(1);
-            @*string output = JsonConvert.SerializeObject(callMeForm);
-            var httpContent = new StringContent(output, Encoding.UTF8, "application/json");
+            string output = JsonConvert.SerializeObject(callMeForm);
+
+            @*var httpContent = new StringContent(output, Encoding.UTF8, "application/json");
             var baseaddress = navigator.BaseUri; // "https://localhost:44370/SendEmail"
             var response = await httpClient.PostAsync(navigator.BaseUri, httpContent);
-            var resultPost = await responsePost.Content.ReadAsStringAsync();*@
+            var resultPost = await response.Content.ReadAsStringAsync();
+            Output = response.RequestMessage.Options.ToString();
+            Request = response.ReasonPhrase;*@
 
-            string output = JsonConvert.SerializeObject(callMeForm);
-            Output = output;
             var requeststring = navigator.BaseUri + "SendEmail?input=" + output;
             Request = requeststring;
             var response = await httpClient.GetAsync(requeststring); 

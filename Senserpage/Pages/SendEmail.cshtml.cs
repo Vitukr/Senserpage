@@ -21,25 +21,7 @@ namespace Senserpage.Pages
         {
             emailSender = emailSender1;
         }
-          
-        //public class InputModel
-        //{
-        //    [Required]
-        //    [EmailAddress]
-        //    public string Email { get; set; }
-
-        //    [Required]
-        //    [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
-        //    [DataType(DataType.Password)]
-        //    public string Password { get; set; }
-
-        //    [DataType(DataType.Password)]
-        //    [Display(Name = "Confirm password")]
-        //    [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-        //    public string ConfirmPassword { get; set; }
-
-        //    public string Code { get; set; }
-        //}
+        
         public async Task OnGet(string input)
         {
             if (!ModelState.IsValid)
@@ -63,18 +45,14 @@ namespace Senserpage.Pages
             await emailSender.SendEmailAsync(emailMessage);
         }
 
-        //[BindProperty]
-        //public CallMeForm Input { get; set; }
-        public async Task OnPostAsync(string input)
+        public async Task OnPostAsync([FromBody] CallMeForm callMeForm)
         {
-            await Task.Delay(1);
-
             if (!ModelState.IsValid)
             {
                 return;
             }
 
-            CallMeForm callMeForm = JsonConvert.DeserializeObject<CallMeForm>(input);
+            //CallMeForm callMeForm = JsonConvert.DeserializeObject<CallMeForm>(input);
             string message = $@"<h2>Позвоните мне.</h2><br /><h2>Имя: {callMeForm.Name}</h2><br /><h2>Телефон: {callMeForm.Phone}</h2>";
 
             var emailMessage = new MimeMessage();

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -30,7 +31,11 @@ namespace Senserpage
             services.AddScoped<Data.IGoods, Data.Goods>();
             services.AddScoped<Data.ICartGood, Data.CartGood>();
             services.AddScoped<Services.EmailSender>();
-            //services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            //services.AddMvc().AddRazorPagesOptions(options =>
+            //{
+            //    //Отключение защиты от CSFR
+            //    options.Conventions.ConfigureFilter(new IgnoreAntiforgeryTokenAttribute());
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

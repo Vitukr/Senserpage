@@ -213,6 +213,8 @@
                     }
                 </tbody>
             </table>
+            @if(Senserpage.Data.Goods.CartGoods.Count > 0)
+            {
             <EditForm Model="@orderForm" OnValidSubmit="@SubmitOrder">
             <DataAnnotationsValidator />
             <ValidationSummary />
@@ -222,8 +224,10 @@
 
             <button class="btn btn-primary" type="submit">Оформить заказ</button>
             </EditForm>
+            }
     </ModalBody>
     <ModalFooter>
+        <div>@Sent</div>
         <button class="btn btn-primary" @onclick="CloseModalOrder">Закрыть</button>
     </ModalFooter>
 </OrderModal>
@@ -485,11 +489,11 @@
 
             if(response.IsSuccessStatusCode)
             {
-                Sent = "Сообщение отправлено.";
+                Sent = "Заказ отправлен.";
             }
             else
             {
-                Sent = "Сообщение не отправлено.";
+                Sent = "Заказ не отправлен.";
             }
         }
     }

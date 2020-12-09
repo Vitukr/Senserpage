@@ -43,6 +43,8 @@ namespace Senserpage.Pages
             emailMessage.Body = MessageWithImage(orderForm).ToMessageBody();
 
             await _emailSender.SendEmailAsync(emailMessage);
+
+            Goods.CartGoods.Clear();
         }
 
         public async Task OnPostAsync([FromBody] OrderForm orderForm)
@@ -69,10 +71,10 @@ namespace Senserpage.Pages
         {
             var builder = new BodyBuilder();
 
-            string message = $@"<h4>Заказ от:</h4><br /><h4>Имя: {orderForm.Name}</h4><br /><h4>Телефон: {orderForm.Phone}</h4>";
+            string message = $@"<div style='font-size: 2em;'><span>Заказ от:</span><br /><span>Имя: {orderForm.Name}</span><br /><span>Телефон: {orderForm.Phone}</span></div>";
 
-            string messageHtml = $"<table cellpadding=\"2\" cellspacing=\"0\"><thead><tr><td>Фото</td>" +
-            "<td>Наименование</td><td>Цена</td><td>Количество</td></tr></thead><tbody>";
+            string messageHtml = $"<table style='font-size: 2em;' cellpadding='5' cellspacing='0'><thead><tr><td>Фото</td>" +
+            "<td style='width: 40%'>Наименование</td><td>Цена</td><td>Количество</td></tr></thead><tbody>";
             string str = "";
             for (int i = 0; i < Goods.CartGoods.Count; i++)
             {
@@ -82,8 +84,8 @@ namespace Senserpage.Pages
                 var image = builder.LinkedResources.Add(path);
                 image.ContentId = MimeUtils.GenerateMessageId();
 
-                str += $"<tr><td><img width=\"100px\" src=\"cid:{image.ContentId}\"/></td>" +
-                    $"<td><span>{good.Name}</span></td><td><span>{good.Price} грн.</span></td>" +
+                str += $"<tr><td><img style='width:100px' src='cid:{image.ContentId}'/></td>" +
+                    $"<td style='width: 40%'><span>{good.Name}</span></td><td><span>{good.Price} грн.</span></td>" +
                     $"<td><span>{good.Number}</span></td></tr>";
             }
             string price = "";

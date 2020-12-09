@@ -30,7 +30,7 @@ namespace Senserpage.Pages
             }
 
             CallMeForm callMeForm = JsonConvert.DeserializeObject<CallMeForm>(input);
-            string message = $@"<h2>Позвоните мне.</h2><br /><h2>Имя: {callMeForm.Name}</h2><br /><h2>Телефон: {callMeForm.Phone}</h2>";
+            string message = $@"<div style='font-size: 2em;'><span>Позвоните мне:</span><br /><span>Имя: {callMeForm.Name}</span><br /><span>Телефон: {callMeForm.Phone}</span></div>";
 
             var emailMessage = new MimeMessage();
 

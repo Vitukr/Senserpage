@@ -13,16 +13,6 @@ namespace Senserpage.Services
         public string Phone { get; set; }
         public async Task SendEmailAsync(MimeMessage emailMessage)
         {
-            //var emailMessage = new MimeMessage();
-
-            //emailMessage.From.Add(new MailboxAddress("Sensershop", "senseradmin@sensershop.vysoft.top"));
-            //emailMessage.To.Add(new MailboxAddress("", email));
-            //emailMessage.Subject = subject;
-            //emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
-            //{
-            //    Text = message
-            //};
-
             using (var client = new SmtpClient())
             {
 #if DEBUG

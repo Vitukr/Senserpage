@@ -4,7 +4,6 @@
 @inject Senserpage.Data.IGoods goods
 @using System.Net.Http
 @inject HttpClient httpClient
-@using System.Text
 @inject NavigationManager navigator
 
 <div class="container-fluid bg-dark">
@@ -166,13 +165,13 @@
     </div>
 </div>
 
-<CartModal Title="Корзина" IsOpened="@CartOpened" DoIsOpened="@CloseModalCart">
+<OrderModal Title="Заказ" IsOpened="@OrderOpened" DoIsOpened="@CloseModalOrder">
     <ModalBody>
-            <table class="container-fluid" cellpadding="5" cellspacing="0">
+            <table class="container-fluid" cellpadding="2" cellspacing="0">
                 <thead>
                     <tr>
                         <td class="textSpan fontSize20">Фото</td>
-                        <td class="textSpan fontSize20">Наименование</td>
+                        <td class="textSpan fontSize20 width40">Наименование</td>
                         <td class="textSpan fontSize20">Цена</td>
                         <td class="textSpan fontSize20">Количество</td>
                     </tr>
@@ -180,20 +179,107 @@
                 <tbody>
                     @for(int i = 0; i < Senserpage.Data.Goods.CartGoods.Count; i++)
                     {
+                        var index = i;
                         var good = Senserpage.Data.Goods.CartGoods[i];
                     <tr>
                         <td><img width="100px" src="@good.PhotoLink"/></td>
-                        <td class="textSpan fontSize20"><span>@good.Name</span></td>
+                        <td class="textSpan fontSize20 width40"><span>@good.Name</span></td>
                         <td class="textSpan fontSize20"><span>@good.Price грн.</span></td>
-                        <td class="textSpan fontSize20"><span>@good.Number</span></td>
+                        <td class="textSpan fontSize20">
+                        <button class="btn" @onclick="@(() => MinusNumber(index))">
+                            <i class="fa fa-minus" aria-hidden="true"></i>
+                        </button><span>@good.Number</span>
+                        <button class="btn" @onclick="@(() => AddNumber(index))">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </button>
+                        <button class="btn" @onclick="@(() => RemoveNumber(index))">
+                            <i class="fa fa-times redcolor" aria-hidden="true"></i>
+                        </button>
+                        </td>
                     </tr>
+                    }
+                    @if(Senserpage.Data.Goods.CartGoods.Count > 0)
+                    {
+                        decimal total = 0;
+                        for(int i = 0; i < Senserpage.Data.Goods.CartGoods.Count; i++)
+                        {
+                            total += Senserpage.Data.Goods.CartGoods[i].Price * Senserpage.Data.Goods.CartGoods[i].Number;
+                        }
+                        <tr>
+                            <td class="textSpan fontSize20">Всего</td>
+                            <td></td>
+                            <td class="textSpan fontSize20">@total грн.</td>
+                        </tr>
                     }
                 </tbody>
             </table>
+            <EditForm Model="@orderForm" OnValidSubmit="@SubmitOrder">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <InputText id="name" @bind-Value="orderForm.Name" placeholder="Имя"/>
+            <InputText id="phone" @bind-Value="orderForm.Phone" placeholder="Телефон"/>
+
+            <button class="btn btn-primary" type="submit">Оформить заказ</button>
+            </EditForm>
+    </ModalBody>
+    <ModalFooter>
+        <button class="btn btn-primary" @onclick="CloseModalOrder">Закрыть</button>
+    </ModalFooter>
+</OrderModal>
+
+<CartModal Title="Корзина" IsOpened="@CartOpened" DoIsOpened="@CloseModalCart">
+    <ModalBody>
+            <table class="container-fluid" cellpadding="2" cellspacing="0">
+                <thead>
+                    <tr>
+                        <td class="textSpan fontSize20">Фото</td>
+                        <td class="textSpan fontSize20 width40">Наименование</td>
+                        <td class="textSpan fontSize20">Цена</td>
+                        <td class="textSpan fontSize20">Количество</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(int i = 0; i < Senserpage.Data.Goods.CartGoods.Count; i++)
+                    {
+                        var index = i;
+                        var good = Senserpage.Data.Goods.CartGoods[i];
+                    <tr>
+                        <td><img width="100px" src="@good.PhotoLink"/></td>
+                        <td class="textSpan fontSize20 width40"><span>@good.Name</span></td>
+                        <td class="textSpan fontSize20"><span>@good.Price грн.</span></td>
+                        <td class="textSpan fontSize20">
+                        <button class="btn" @onclick="@(() => MinusNumber(index))">
+                            <i class="fa fa-minus" aria-hidden="true"></i>
+                        </button><span>@good.Number</span>
+                        <button class="btn" @onclick="@(() => AddNumber(index))">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </button>
+                        <button class="btn" @onclick="@(() => RemoveNumber(index))">
+                            <i class="fa fa-times redcolor" aria-hidden="true"></i>
+                        </button>
+                        </td>
+                    </tr>
+                    }
+                    @if(Senserpage.Data.Goods.CartGoods.Count > 0)
+                    {
+                        decimal total = 0;
+                        for(int i = 0; i < Senserpage.Data.Goods.CartGoods.Count; i++)
+                        {
+                            total += Senserpage.Data.Goods.CartGoods[i].Price * Senserpage.Data.Goods.CartGoods[i].Number;
+                        }
+                        <tr>
+                            <td class="textSpan fontSize20">Всего</td>
+                            <td></td>
+                            <td class="textSpan fontSize20">@total грн.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>  
     </ModalBody>
     <ModalFooter>
         <button class="btn btn-primary" @onclick="CloseModalCart">Закрыть</button>
-        <button class="btn btn-primary" @onclick="CloseModalCart">Оформить</button>
+        <button class="btn btn-primary" @onclick="CloseModalCartWithOrder">Оформить</button>
     </ModalFooter>
 </CartModal>
 
@@ -276,6 +362,12 @@
         CartOpened = false; 
     }
 
+    void CloseModalCartWithOrder()
+    {        
+        CartOpened = false; 
+        OpenModalOrder();
+    }
+
     public bool CallOpened { get; set; }
 
     void OpenModalCall()
@@ -314,6 +406,76 @@
             Request = response.ReasonPhrase;*@
 
             var requeststring = navigator.BaseUri + "SendEmail?input=" + output;
+            Request = requeststring;
+            var response = await httpClient.GetAsync(requeststring); 
+
+            @*HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, requeststring);
+            requestMessage.Content = new StringContent(output, Encoding.UTF8, "application/json");
+            var response = await httpClient.SendAsync(requestMessage);*@
+
+            if(response.IsSuccessStatusCode)
+            {
+                Sent = "Сообщение отправлено.";
+            }
+            else
+            {
+                Sent = "Сообщение не отправлено.";
+            }
+        }
+    }
+
+    public void AddNumber(int i)
+    {
+        Senserpage.Data.Goods.CartGoods[i].Number++;
+    }
+    public void MinusNumber(int i)
+    {
+        Senserpage.Data.Goods.CartGoods[i].Number--;
+        if(Senserpage.Data.Goods.CartGoods[i].Number <= 0)
+        {
+            Senserpage.Data.Goods.CartGoods.RemoveAt(i);
+        }
+    }
+    public void RemoveNumber(int i)
+    {
+        Senserpage.Data.Goods.CartGoods.RemoveAt(i);
+    }
+
+    public bool OrderOpened { get; set; }
+
+    void OpenModalOrder()
+    {
+        OrderOpened = true; 
+    }
+
+    void CloseModalOrder()
+    {        
+        OrderOpened = false; 
+    }
+
+    async Task CloseModalOrderWithOrder()
+    {        
+        OrderOpened = false; 
+        await SubmitOrder();
+    }
+
+    private OrderForm orderForm = new OrderForm();
+
+    public async Task SubmitOrder()
+    {
+        Sent = null;
+        if (httpClient != null)
+        {
+            string output = JsonConvert.SerializeObject(orderForm);
+
+            @*var httpContent = new StringContent(output, Encoding.UTF8, "application/json");
+            var baseaddress = navigator.BaseUri; // "https://localhost:44370/SendEmail"
+            var response = await httpClient.PostAsync(navigator.BaseUri, httpContent);
+            var resultPost = await response.Content.ReadAsStringAsync();
+            Output = response.RequestMessage.Options.ToString();
+            Request = response.ReasonPhrase;*@
+
+            var requeststring = navigator.BaseUri + "SendOrder?input=" + output;
             Request = requeststring;
             var response = await httpClient.GetAsync(requeststring); 
 

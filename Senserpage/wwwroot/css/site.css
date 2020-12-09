@@ -165,3 +165,11 @@ body {
 .pointer {
     cursor: pointer;
 }
+
+.redcolor {
+    color: red;
+}
+
+.width40 {
+    width: 40%;
+}

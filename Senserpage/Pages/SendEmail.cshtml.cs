@@ -15,11 +15,11 @@ namespace Senserpage.Pages
 {
     public class SendEmailModel : PageModel
     {
-        private EmailSender emailSender;
+        private EmailSender _emailSender;
 
-        public SendEmailModel(EmailSender emailSender1)
+        public SendEmailModel(EmailSender emailSender)
         {
-            emailSender = emailSender1;
+            _emailSender = emailSender;
         }
         
         public async Task OnGet(string input)
@@ -35,14 +35,14 @@ namespace Senserpage.Pages
             var emailMessage = new MimeMessage();
 
             emailMessage.From.Add(new MailboxAddress("Sensershop", "senseradmin@sensershop.vysoft.top"));
-            emailMessage.To.Add(new MailboxAddress("", "sensershops@gmail.com"));
+            emailMessage.To.Add(new MailboxAddress("", "vyarema@gmail.com")); // "sensershops@gmail.com"
             emailMessage.Subject = "С сайта Senser shop";
             emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
             {
                 Text = message
             };
 
-            await emailSender.SendEmailAsync(emailMessage);
+            await _emailSender.SendEmailAsync(emailMessage);
         }
 
         public async Task OnPostAsync([FromBody] CallMeForm callMeForm)
@@ -65,7 +65,7 @@ namespace Senserpage.Pages
                 Text = message
             };
 
-            await emailSender.SendEmailAsync(emailMessage);
+            await _emailSender.SendEmailAsync(emailMessage);
 
             //return View();
             //return LocalRedirect("/Index");

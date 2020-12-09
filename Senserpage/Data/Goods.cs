@@ -41,12 +41,12 @@ namespace Senserpage.Data
                     "Гарантия - 12 месяцев"
                 },
                 ImageLinks = new List<string>(){
-                    "/images/senser1.jpg",
-                    "/images/senser11.jpg",
-                    "/images/senser12.jpg",
-                    "/images/senser13.jpg",
-                    "/images/senser14.jpg",
-                    "/images/senser15.jpg"
+                    "/images/MF 46E24 Matt Black Rustic -фронт.jpg",
+                    "/images/MF 46E24 Matt Black Rustic -1.jpg",
+                    "/images/MF 46E24 Matt Black Rustic -2.jpg",
+                    "/images/MF 46E24 Matt Black Rustic -3.jpg",
+                    "/images/MF 46E24 Matt Black Rustic -4.jpg",
+                    "/images/MF 46E24 Matt Black Rustic -6.jpg"
                 },
                 IsOpened = false
             }); ;
@@ -75,12 +75,12 @@ namespace Senserpage.Data
                     "Гарантия - 12 месяцев"
                 },
                 ImageLinks = new List<string>(){
-                    "/images/senser2.jpg",
-                    "/images/senser21.jpg",
-                    "/images/senser22.jpg",
-                    "/images/senser23.jpg",
-                    "/images/senser24.jpg",
-                    "/images/senser25.jpg"
+                    "/images/MF 46E24 Beige Rustic -фронт.jpg",
+                    "/images/MF 46E24 Beige Rustic -1.jpg",
+                    "/images/MF 46E24 Beige Rustic -2.jpg",
+                    "/images/MF 46E24 Beige Rustic -3.jpg",
+                    "/images/MF 46E24 Beige Rustic -5.jpg",
+                    "/images/MF 46E24 Beige Rustic -6.jpg"
                 },
                 IsOpened = false
             });
@@ -108,12 +108,12 @@ namespace Senserpage.Data
                     "Гарантия - 12 месяцев"
                 },
                 ImageLinks = new List<string>(){
-                    "/images/senser3.jpg",
-                    "/images/senser31.jpg",
-                    "/images/senser32.jpg",
-                    "/images/senser33.jpg",
-                    "/images/senser34.jpg",
-                    "/images/senser35.jpg"
+                    "/images/MF 46E24 Burgundy -фронт.jpg",
+                    "/images/MF 46E24 Burgundy -1.jpg",
+                    "/images/MF 46E24 Burgundy -2.jpg",
+                    "/images/MF 46E24 Burgundy -3.jpg",
+                    "/images/MF 46E24 Burgundy -4.jpg",
+                    "/images/MF 46E24 Burgundy -5.jpg"
                 },
                 IsOpened = false
             });
@@ -141,12 +141,12 @@ namespace Senserpage.Data
                     "Гарантия - 12 месяцев"
                 },
                 ImageLinks = new List<string>(){
-                    "/images/senser4.jpg",
-                    "/images/senser41.jpg",
-                    "/images/senser42.jpg",
-                    "/images/senser43.jpg",
-                    "/images/senser44.jpg",
-                    "/images/senser45.jpg"
+                    "/images/MF 46E24 Matt Black -фронт.jpg",
+                    "/images/MF 46E24 Matt Black -1.jpg",
+                    "/images/MF 46E24 Matt Black -2.jpg",
+                    "/images/MF 46E24 Matt Black -3.jpg",
+                    "/images/MF 46E24 Matt Black -5.jpg",
+                    "/images/MF 46E24 Matt Black -6.jpg"
                 },
                 IsOpened = false
             });
@@ -174,12 +174,12 @@ namespace Senserpage.Data
                     "Гарантия - 12 месяцев"
                 },
                 ImageLinks = new List<string>(){
-                    "/images/senser5.jpg",
-                    "/images/senser51.jpg",
-                    "/images/senser52.jpg",
-                    "/images/senser53.jpg",
-                    "/images/senser54.jpg",
-                    "/images/senser55.jpg"
+                    "/images/MF 46E24 Grey -фронт.jpg",
+                    "/images/MF 46E24 Grey -1.jpg",
+                    "/images/MF 46E24 Grey -2.jpg",
+                    "/images/MF 46E24 Grey -3.jpg",
+                    "/images/MF 46E24 Grey -5.jpg",
+                    "/images/MF 46E24 Grey -6.jpg"
                 },
                 IsOpened = false
             });

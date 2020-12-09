@@ -227,7 +227,7 @@
             }
     </ModalBody>
     <ModalFooter>
-        <div>@Sent</div>
+        <div>@SentOrder</div>
         <button class="btn btn-primary" @onclick="CloseModalOrder">Закрыть</button>
     </ModalFooter>
 </OrderModal>
@@ -449,25 +449,30 @@
 
     void OpenModalOrder()
     {
+        SentOrder = null;
         OrderOpened = true; 
     }
 
     void CloseModalOrder()
     {        
+        SentOrder = null;
         OrderOpened = false; 
     }
 
-    async Task CloseModalOrderWithOrder()
-    {        
+    @*async Task CloseModalOrderWithOrder()
+    {      
+        SentOrder = null;
         OrderOpened = false; 
         await SubmitOrder();
-    }
+    }*@
 
     private OrderForm orderForm = new OrderForm();
 
+    private string SentOrder { get; set; }
+
     public async Task SubmitOrder()
     {
-        Sent = null;
+        SentOrder = null;
         if (httpClient != null)
         {
             string output = JsonConvert.SerializeObject(orderForm);
@@ -489,11 +494,11 @@
 
             if(response.IsSuccessStatusCode)
             {
-                Sent = "Заказ отправлен.";
+                SentOrder = "Заказ отправлен.";
             }
             else
             {
-                Sent = "Заказ не отправлен.";
+                SentOrder = "Заказ не отправлен.";
             }
         }
     }

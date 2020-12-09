@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -38,8 +34,8 @@ namespace Senserpage.Pages
             var emailMessage = new MimeMessage();
 
             emailMessage.From.Add(new MailboxAddress("Sensershop", "senseradmin@sensershop.vysoft.top"));
-            emailMessage.To.Add(new MailboxAddress("", "vyarema@gmail.com")); // "sensershops@gmail.com"
-            emailMessage.Subject = "С сайта Senser shop";
+            emailMessage.To.Add(new MailboxAddress("", "sensershops@gmail.com")); // "sensershops@gmail.com"
+            emailMessage.Subject = "Заказ с сайта Senser shop";
             emailMessage.Body = MessageWithImage(orderForm).ToMessageBody();
 
             await _emailSender.SendEmailAsync(emailMessage);
@@ -58,7 +54,7 @@ namespace Senserpage.Pages
 
             emailMessage.From.Add(new MailboxAddress("Sensershop", "senseradmin@sensershop.vysoft.top"));
             emailMessage.To.Add(new MailboxAddress("", "vyarema@gmail.com"));
-            emailMessage.Subject = "С сайта Senser shop";
+            emailMessage.Subject = "Заказ с сайта Senser shop";
             emailMessage.Body = MessageWithImage(orderForm).ToMessageBody();
 
             await _emailSender.SendEmailAsync(emailMessage);

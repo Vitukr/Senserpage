@@ -4,7 +4,4 @@
     ViewData["Title"] = "Home page";
 }
 
-
-@*<component>@(await Html.RenderComponentAsync<Shop>(RenderMode.Server))</component>*@
-
 <component type="typeof(Shop)" render-mode="Server" />

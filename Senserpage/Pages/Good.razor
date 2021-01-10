@@ -129,12 +129,33 @@
 
     void OpenModal()
     {
-        IsOpened = true; 
+        var g = Senserpage.Data.Goods.CartGoods.Any(r => r.Name == Name);
+        if (g)
+        {
+            for (int i = 0; i < Senserpage.Data.Goods.CartGoods.Count; i++)
+            {
+                if (Senserpage.Data.Goods.CartGoods[i].Name == Name)
+                {
+                    Senserpage.Data.Goods.CartGoods[i].Number++;
+                }
+            }
+        }
+        else
+        {
+            Senserpage.Data.Goods.CartGoods.Add(new CartGood()
+            {
+                Name = Name,
+                Price = Price,
+                PhotoLink = MainImage,
+                Number = 1
+            });
+        }
+        IsOpened = true;
     }
 
     void CloseModal()
-    {        
-        IsOpened = false; 
+    {
+        IsOpened = false;
     }
 
     [Parameter]

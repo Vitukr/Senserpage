@@ -18,7 +18,7 @@
         </div>
         <div class="blazor-modal-footer">
             @ModalFooter
-            <button class="btn btn-primary" @onclick="AddToCart">Купить</button>
+            <button class="btn btn-primary" @onclick="AddToCart">В корзину</button>
         </div>
     </div>
 </div>
@@ -175,27 +175,6 @@
 
     void AddToCart()
     {
-        var g = Senserpage.Data.Goods.CartGoods.Any(r => r.Name == NameGood);
-        if (g)
-        {
-            for(int i = 0; i < Senserpage.Data.Goods.CartGoods.Count; i++)
-            {
-                if(Senserpage.Data.Goods.CartGoods[i].Name == NameGood)
-                {
-                    Senserpage.Data.Goods.CartGoods[i].Number++;
-                }
-            }
-        }
-        else
-        {
-            Senserpage.Data.Goods.CartGoods.Add(new CartGood()
-            {
-                Name = NameGood,
-                Price = PriceGood,
-                PhotoLink = LinkGood,
-                Number = 1
-            });
-        }
         CloseCart();
         OpenModalCart();
     }

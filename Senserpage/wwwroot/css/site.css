@@ -106,8 +106,8 @@ body {
 }
 
 .commonText {
-    /*background-color: antiquewhite;*/
-    background-image: url(../images/senserbg1.png);
+    background-color: lightgray;
+   /* background-image: url(../images/senserbg1.png);*/
 }
 
 .emptydiv {
@@ -134,7 +134,8 @@ body {
 }
 
 .pricegreen {
-    color: forestgreen;
+    /*color: forestgreen;*/
+    color: dodgerblue;
 }
 
 .imagesInLine {

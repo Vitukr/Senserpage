@@ -18,20 +18,20 @@
         </div>
         <div class="blazor-modal-footer">
             @ModalFooter
-            <button class="btn btn-primary" @onclick="AddToCart">В корзину</button>
+            <button class="btn btn-primary" @onclick="AddToCart">В кошик</button>
         </div>
     </div>
 </div>
 
-<OrderModal Title="Заказ" IsOpened="@OrderOpened" DoIsOpened="@CloseModalOrder">
+<OrderModal Title="Замовлення" IsOpened="@OrderOpened" DoIsOpened="@CloseModalOrder">
     <ModalBody>
             <table class="container-fluid" cellpadding="2" cellspacing="0">
                 <thead>
                     <tr>
                         <td class="textSpan fontSize20">Фото</td>
-                        <td class="textSpan fontSize20 width40">Наименование</td>
-                        <td class="textSpan fontSize20">Цена</td>
-                        <td class="textSpan fontSize20">Количество</td>
+                        <td class="textSpan fontSize20 width40">Найменування</td>
+                        <td class="textSpan fontSize20">Ціна</td>
+                        <td class="textSpan fontSize20">Кількість</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,7 +40,7 @@
                         var index = i;
                         var good = Senserpage.Data.Goods.CartGoods[i];
                     <tr>
-                        <td><img width="100px" src="@good.PhotoLink"/></td>
+                        <td><img width="100" src="@good.PhotoLink"/></td>
                         <td class="textSpan fontSize20 width40"><span>@good.Name</span></td>
                         <td class="textSpan fontSize20"><span>@good.Price грн.</span></td>
                         <td class="textSpan fontSize20">
@@ -64,7 +64,7 @@
                             total += Senserpage.Data.Goods.CartGoods[i].Price * Senserpage.Data.Goods.CartGoods[i].Number;
                         }
                         <tr>
-                            <td class="textSpan fontSize20">Всего</td>
+                            <td class="textSpan fontSize20">Всього</td>
                             <td></td>
                             <td class="textSpan fontSize20">@total грн.</td>
                         </tr>
@@ -77,28 +77,28 @@
             <DataAnnotationsValidator />
             <ValidationSummary />
 
-            <InputText id="name" @bind-Value="orderForm.Name" placeholder="Имя"/>
+            <InputText id="name" @bind-Value="orderForm.Name" placeholder="Ім'я"/>
             <InputText id="phone" @bind-Value="orderForm.Phone" placeholder="Телефон"/>
 
-            <button class="btn btn-primary" type="submit">Оформить заказ</button>
+            <button class="btn btn-primary" type="submit">Оформити замовлення</button>
             </EditForm>
             }
     </ModalBody>
     <ModalFooter>
         <div>@SentOrder</div>
-        <button class="btn btn-primary" @onclick="CloseModalOrder">Закрыть</button>
+        <button class="btn btn-primary" @onclick="CloseModalOrder">Закрити</button>
     </ModalFooter>
 </OrderModal>
 
-<CartModal Title="Корзина" IsOpened="@CartOpened" DoIsOpened="@CloseModalCart">
+<CartModal Title="Кошик" IsOpened="@CartOpened" DoIsOpened="@CloseModalCart">
     <ModalBody>
             <table class="container-fluid" cellpadding="2" cellspacing="0">
                 <thead>
                     <tr>
                         <td class="textSpan fontSize20">Фото</td>
-                        <td class="textSpan fontSize20 width40">Наименование</td>
-                        <td class="textSpan fontSize20">Цена</td>
-                        <td class="textSpan fontSize20">Количество</td>
+                        <td class="textSpan fontSize20 width40">Найменування</td>
+                        <td class="textSpan fontSize20">Ціна</td>
+                        <td class="textSpan fontSize20">Кількість</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -107,7 +107,7 @@
                         var index = i;
                         var good = Senserpage.Data.Goods.CartGoods[i];
                     <tr>
-                        <td><img width="100px" src="@good.PhotoLink"/></td>
+                        <td><img width="100" src="@good.PhotoLink"/></td>
                         <td class="textSpan fontSize20 width40"><span>@good.Name</span></td>
                         <td class="textSpan fontSize20"><span>@good.Price грн.</span></td>
                         <td class="textSpan fontSize20">
@@ -131,7 +131,7 @@
                             total += Senserpage.Data.Goods.CartGoods[i].Price * Senserpage.Data.Goods.CartGoods[i].Number;
                         }
                         <tr>
-                            <td class="textSpan fontSize20">Всего</td>
+                            <td class="textSpan fontSize20">Всього</td>
                             <td></td>
                             <td class="textSpan fontSize20">@total грн.</td>
                         </tr>
@@ -140,8 +140,8 @@
             </table>
     </ModalBody>
     <ModalFooter>
-        <button class="btn btn-primary" @onclick="CloseModalCart">Закрыть</button>
-        <button class="btn btn-primary" @onclick="CloseModalCartWithOrder">Оформить</button>
+        <button class="btn btn-primary" @onclick="CloseModalCart">Закрити</button>
+        <button class="btn btn-primary" @onclick="CloseModalCartWithOrder">Оформити</button>
     </ModalFooter>
 </CartModal>
 

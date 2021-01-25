@@ -24,7 +24,7 @@
             <div>
                 <button class="btn btn-primary" @onclick="OpenModal">
                 <i class="fa fa-shopping-cart" aria-hidden="true">
-                </i> <span>Купить</span>
+                </i> <span>Купити</span>
                 </button>                
             </div> 
             </div>
@@ -81,7 +81,7 @@
             <div>
                 <button class="btn btn-primary" @onclick="OpenModal">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i> 
-                <span>Купить</span>
+                <span>Купити</span>
                 </button>
             </div> 
             </div>
@@ -91,17 +91,17 @@
 
 <ModalPhoto DoIsOpened="@ShowPhotos" IsOpened="@ShowPhoto" Link="@LinkPhoto" Links="@LinkPhotos">
     <ModalBody>
-        <button class="btn btn-primary" @onclick="ShowPhotos">Закрыть</button>    
+        <button class="btn btn-primary" @onclick="ShowPhotos">Закрити</button>    
     </ModalBody>
 </ModalPhoto>
 
-<ModalPopUp Title="Инфо" IsOpened="@IsOpened" DoIsOpened="@CloseModal" NameGood="@Name" PriceGood="@Price" LinkGood="@MainImage" >
+<ModalPopUp Title="Інфо" IsOpened="@IsOpened" DoIsOpened="@CloseModal" NameGood="@Name" PriceGood="@Price" LinkGood="@MainImage" >
     <ModalBody>
-        <h4>Товар @Name добавлен в корзину.</h4>
-        <h4>Цена товара @Price грн.</h4>
+        <h4>Товар @Name доданий до кошика.</h4>
+        <h4>Ціна @Price грн.</h4>
     </ModalBody>
     <ModalFooter>
-        <button class="btn btn-primary" @onclick="CloseModal">Закрыть</button>
+        <button class="btn btn-primary" @onclick="CloseModal">Закрити</button>
     </ModalFooter>
 </ModalPopUp>
 

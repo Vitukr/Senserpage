@@ -82,7 +82,7 @@ body {
 
 .textSpanBlue {
     text-align: center;
-    color: dodgerblue;
+    color: #1b6ec2;    
 }
 
 .fontSize56 {
@@ -134,8 +134,7 @@ body {
 }
 
 .pricegreen {
-    /*color: forestgreen;*/
-    color: dodgerblue;
+    color: #1b6ec2;
 }
 
 .imagesInLine {

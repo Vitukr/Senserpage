@@ -49,7 +49,7 @@ namespace Senserpage.Data
                     "/images/MF 46E24 Matt Black Rustic -6.jpg"
                 },
                 IsOpened = false
-            }); ;
+            }); 
 
             list.Add(new Good()
             {
@@ -183,6 +183,42 @@ namespace Senserpage.Data
                     "/images/MF 46E24 Grey -3.jpg",
                     "/images/MF 46E24 Grey -5.jpg",
                     "/images/MF 46E24 Grey -6.jpg"
+                },
+                IsOpened = false
+            });
+
+            list.Add(new Good()
+            {
+                Name = "MF 46E24 WOODEN",
+                Price = 3299,
+                Attributes = new List<string>(){
+                    "Конвекція",
+                    "Гриль",
+                    "Розморожування",
+                    "Термостат, °С - 280",
+                    "Потужність, кВт - 1,6",
+                    "Таймер, мин - 90",
+                    "Автовідключення",
+                    "Кількість режимів приготування - 5",
+                    "Гумовий ущільнювач (повна ізоляція)",
+                    "Комплектація: 2 лотка + 1 решітка",
+                    "Об’єм, л - 46",
+                    "Подвійне скло духовки",
+                    "Внутрішнє покриття - емаль легкої очистки",
+                    "Колір: передня панель під дерево + чорні стінки",
+                    "Габарити (ВхШхГ), см: 36 х 62 х 47",
+                    "Країна виробництва - Туреччина",
+                    "Гарантія - 12 місяців"
+                },
+                ImageLinks = new List<string>(){
+                    "/images/MF 46E24 Wooden_1.jpg",
+                    "/images/MF 46E24 Wooden_2.jpg",
+                    "/images/MF 46E24 Wooden_3.jpg",
+                    "/images/MF 46E24 Wooden_4.jpg",
+                    "/images/MF 46E24 Wooden_5.jpg",
+                    "/images/MF 46E24 Wooden_6.jpg",
+                    "/images/MF 46E24 Wooden_7.jpg",
+                    "/images/MF 46E24 Wooden_8.jpg",
                 },
                 IsOpened = false
             });

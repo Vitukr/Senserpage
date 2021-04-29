@@ -33,8 +33,8 @@ namespace Senserpage.Pages
 
             var emailMessage = new MimeMessage();
 
-            emailMessage.From.Add(new MailboxAddress("Sensershop", "senseradmin@sensershop.vysoft.top"));
-            emailMessage.To.Add(new MailboxAddress("", "sensershops@gmail.com")); // "sensershops@gmail.com"
+            emailMessage.From.Add(new MailboxAddress("Sensershop", "admin@senser.com.ua"));
+            emailMessage.To.Add(new MailboxAddress("", "sensershops@gmail.com"));
             emailMessage.Subject = "Заказ с сайта Senser shop";
             emailMessage.Body = MessageWithImage(orderForm).ToMessageBody();
 
@@ -52,7 +52,7 @@ namespace Senserpage.Pages
 
             var emailMessage = new MimeMessage();
 
-            emailMessage.From.Add(new MailboxAddress("Sensershop", "senseradmin@sensershop.vysoft.top"));
+            emailMessage.From.Add(new MailboxAddress("Sensershop", "admin@senser.com.ua"));
             emailMessage.To.Add(new MailboxAddress("", "vyarema@gmail.com"));
             emailMessage.Subject = "Заказ с сайта Senser shop";
             emailMessage.Body = MessageWithImage(orderForm).ToMessageBody();

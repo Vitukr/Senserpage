@@ -21,7 +21,7 @@ namespace Senserpage.Services
                 await client.ConnectAsync("localhost", 25, false);
 #endif
 
-                await client.AuthenticateAsync("senseradmin@sensershop.vysoft.top", "bzphqlisf0oukaxvyngc");
+                await client.AuthenticateAsync("admin@senser.com.ua", "sbvjmazfx4cnikuhqtgy");
                 await client.SendAsync(emailMessage);
 
                 await client.DisconnectAsync(true);

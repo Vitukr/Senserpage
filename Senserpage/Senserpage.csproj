@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <SignAssembly>false</SignAssembly>
+    <UserSecretsId>31bc34fb-7b2c-4b83-bb33-d2de7dddc45c</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

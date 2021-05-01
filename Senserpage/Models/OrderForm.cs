@@ -8,12 +8,12 @@ namespace Senserpage.Models
 {
     public class OrderForm
     {
-        [Required]
-        [StringLength(20, ErrorMessage = "Слишком большое имя")]
+        [Required(ErrorMessage = "Ім'я є обов'язковим")]
+        [StringLength(20, ErrorMessage = "Дуже велике ім'я")]
         public string Name { get; set; }
 
-        [Required]
-        [StringLength(20, ErrorMessage = "Много цифр в номере телефона")]
+        [Required(ErrorMessage = "Телефон є обов'язковим")]
+        [StringLength(20, ErrorMessage = "Багато цифр в номері телефона")]
         [Phone]
         public string Phone { get; set; }
         [EmailAddress]

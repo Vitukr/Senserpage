@@ -96,10 +96,14 @@
         {
         <EditForm Model="@orderForm" OnValidSubmit="@SubmitOrder">
             <DataAnnotationsValidator />
-            <ValidationSummary />
+            @*<ValidationSummary />*@
 
+            <ValidationMessage For=@(() => orderForm.Name) style="color:red;" />
             <InputText id="name" @bind-Value="orderForm.Name" placeholder="Ім'я" />
+
+            <ValidationMessage For=@(() => orderForm.Phone) style="color:red;" />
             <InputText id="phone" @bind-Value="orderForm.Phone" placeholder="Телефон" />
+
             <InputText id="phone" @bind-Value="orderForm.Email" placeholder="Електронна пошта" />
             <br />
             <button class="btn btn-primary" type="submit">Оформити замовлення</button>

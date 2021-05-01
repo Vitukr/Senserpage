@@ -20,7 +20,8 @@ namespace Senserpage.Data
             list.Add(new Good()
             {
                 Name = "MF 46E24 MATT BLACK RUSTIC",
-                Price = 3299,
+                Price = 3499,
+                PriceAction = 3149,
                 Attributes = new List<string>(){
                     "Конвекція",
                     "Гриль",
@@ -41,22 +42,20 @@ namespace Senserpage.Data
                     "Гарантія - 12 місяців"
                 },
                 ImageLinks = new List<string>(){
-                    "/images/MF 46E24 Beige Rustic -1_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -2_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -3_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -4_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -5_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -6_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -7_1000.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_1_1000.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_2_1000.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_3_1000.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_4_1000.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_5_1000.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_6_1000.jpg",
                 },
                 ImageLinksSmall = new List<string>(){
-                    "/images/MF 46E24 Beige Rustic -1_400.jpg",
-                    "/images/MF 46E24 Beige Rustic -2_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -3_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -4_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -5_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -6_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -7_100.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_1_400.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_2_100.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_3_100.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_4_100.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_5_100.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_6_100.jpg",
                 },
                 IsOpened = false
             }); 
@@ -64,7 +63,8 @@ namespace Senserpage.Data
             list.Add(new Good()
             {
                 Name = "MF 46E24 BEIGE RUSTIC",
-                Price = 3299,
+                Price = 3499,
+                PriceAction = 3149,
                 Attributes = new List<string>(){
                     "Конвекція",
                     "Гриль",
@@ -85,22 +85,20 @@ namespace Senserpage.Data
                     "Гарантія - 12 місяців"
                 },
                 ImageLinks = new List<string>(){
-                    "/images/MF 46E24 Beige Rustic -1_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -2_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -3_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -4_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -5_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -6_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -7_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic_1_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic_2_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic_3_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic_4_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic_5_1000.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_6_1000.jpg",
                 },
                 ImageLinksSmall = new List<string>(){
-                    "/images/MF 46E24 Beige Rustic -1_400.jpg",
-                    "/images/MF 46E24 Beige Rustic -2_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -3_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -4_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -5_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -6_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -7_100.jpg",
+                    "/images/MF 46E24 Beige Rustic_1_400.jpg",
+                    "/images/MF 46E24 Beige Rustic_2_100.jpg",
+                    "/images/MF 46E24 Beige Rustic_3_100.jpg",
+                    "/images/MF 46E24 Beige Rustic_4_100.jpg",
+                    "/images/MF 46E24 Beige Rustic_5_100.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_6_100.jpg",
                 },
                 IsOpened = false
             });
@@ -108,7 +106,8 @@ namespace Senserpage.Data
             list.Add(new Good()
             {
                 Name = "MF 46E24 WOODEN",
-                Price = 3299,
+                Price = 3499,
+                PriceAction = 3149,
                 Attributes = new List<string>(){
                     "Конвекція",
                     "Гриль",
@@ -129,22 +128,20 @@ namespace Senserpage.Data
                     "Гарантія - 12 місяців"
                 },
                 ImageLinks = new List<string>(){
-                    "/images/MF 46E24 Beige Rustic -1_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -2_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -3_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -4_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -5_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -6_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -7_1000.jpg",
+                    "/images/MF 46E24 Wooden_1_1000.jpg",
+                    "/images/MF 46E24 Wooden_2_1000.jpg",
+                    "/images/MF 46E24 Wooden_3_1000.jpg",
+                    "/images/MF 46E24 Wooden_4_1000.jpg",
+                    "/images/MF 46E24 Wooden_5_1000.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_6_1000.jpg",
                 },
                 ImageLinksSmall = new List<string>(){
-                    "/images/MF 46E24 Beige Rustic -1_400.jpg",
-                    "/images/MF 46E24 Beige Rustic -2_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -3_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -4_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -5_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -6_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -7_100.jpg",
+                    "/images/MF 46E24 Wooden_1_400.jpg",
+                    "/images/MF 46E24 Wooden_2_100.jpg",
+                    "/images/MF 46E24 Wooden_3_100.jpg",
+                    "/images/MF 46E24 Wooden_4_100.jpg",
+                    "/images/MF 46E24 Wooden_5_100.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_6_100.jpg",
                 },
                 IsOpened = false
             });
@@ -153,6 +150,7 @@ namespace Senserpage.Data
             {
                 Name = "MF 46E24 MATT BURGUNDY",
                 Price = 2599,
+                PriceAction = 2339,
                 Attributes = new List<string>(){
                     "Конвекція",
                     "Гриль",
@@ -173,22 +171,20 @@ namespace Senserpage.Data
                     "Гарантія - 12 місяців"
                 },
                 ImageLinks = new List<string>(){
-                    "/images/MF 46E24 Beige Rustic -1_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -2_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -3_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -4_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -5_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -6_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -7_1000.jpg",
+                    "/images/MF 46E24 Burgundy_1_1000.jpg",
+                    "/images/MF 46E24 Burgundy_2_1000.jpg",
+                    "/images/MF 46E24 Burgundy_3_1000.jpg",
+                    "/images/MF 46E24 Burgundy_4_1000.jpg",
+                    "/images/MF 46E24 Burgundy_5_1000.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_6_1000.jpg",
                 },
                 ImageLinksSmall = new List<string>(){
-                    "/images/MF 46E24 Beige Rustic -1_400.jpg",
-                    "/images/MF 46E24 Beige Rustic -2_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -3_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -4_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -5_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -6_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -7_100.jpg",
+                    "/images/MF 46E24 Burgundy_1_400.jpg",
+                    "/images/MF 46E24 Burgundy_2_100.jpg",
+                    "/images/MF 46E24 Burgundy_3_100.jpg",
+                    "/images/MF 46E24 Burgundy_4_100.jpg",
+                    "/images/MF 46E24 Burgundy_5_100.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_6_100.jpg",
                 },
                 IsOpened = false
             });
@@ -197,6 +193,7 @@ namespace Senserpage.Data
             {
                 Name = "MF 46E24 MATT BLACK",
                 Price = 2599,
+                PriceAction = 2339,
                 Attributes = new List<string>(){
                     "Конвекція",
                     "Гриль",
@@ -217,22 +214,20 @@ namespace Senserpage.Data
                     "Гарантія - 12 місяців"
                 },
                 ImageLinks = new List<string>(){
-                    "/images/MF 46E24 Beige Rustic -1_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -2_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -3_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -4_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -5_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -6_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -7_1000.jpg",
+                    "/images/MF 46E24 Matt Black_1_1000.jpg",
+                    "/images/MF 46E24 Matt Black_2_1000.jpg",
+                    "/images/MF 46E24 Matt Black_3_1000.jpg",
+                    "/images/MF 46E24 Matt Black_4_1000.jpg",
+                    "/images/MF 46E24 Matt Black_5_1000.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_6_1000.jpg",
                 },
                 ImageLinksSmall = new List<string>(){
-                    "/images/MF 46E24 Beige Rustic -1_400.jpg",
-                    "/images/MF 46E24 Beige Rustic -2_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -3_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -4_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -5_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -6_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -7_100.jpg",
+                    "/images/MF 46E24 Matt Black_1_400.jpg",
+                    "/images/MF 46E24 Matt Black_2_100.jpg",
+                    "/images/MF 46E24 Matt Black_3_100.jpg",
+                    "/images/MF 46E24 Matt Black_4_100.jpg",
+                    "/images/MF 46E24 Matt Black_5_100.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_6_100.jpg",
                 },
                 IsOpened = false
             });
@@ -241,6 +236,7 @@ namespace Senserpage.Data
             {
                 Name = "MF 46E24 GREY",
                 Price = 2599,
+                PriceAction = 2339,
                 Attributes = new List<string>(){
                     "Конвекція",
                     "Гриль",
@@ -261,22 +257,20 @@ namespace Senserpage.Data
                     "Гарантія - 12 місяців"
                 },
                 ImageLinks = new List<string>(){
-                    "/images/MF 46E24 Beige Rustic -1_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -2_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -3_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -4_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -5_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -6_1000.jpg",
-                    "/images/MF 46E24 Beige Rustic -7_1000.jpg",
+                    "/images/MF 46E24 Grey_1_1000.jpg",
+                    "/images/MF 46E24 Grey_2_1000.jpg",
+                    "/images/MF 46E24 Grey_3_1000.jpg",
+                    "/images/MF 46E24 Grey_4_1000.jpg",
+                    "/images/MF 46E24 Grey_5_1000.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_6_1000.jpg",
                 },
                 ImageLinksSmall = new List<string>(){
-                    "/images/MF 46E24 Beige Rustic -1_400.jpg",
-                    "/images/MF 46E24 Beige Rustic -2_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -3_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -4_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -5_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -6_100.jpg",
-                    "/images/MF 46E24 Beige Rustic -7_100.jpg",
+                    "/images/MF 46E24 Grey_1_400.jpg",
+                    "/images/MF 46E24 Grey_2_100.jpg",
+                    "/images/MF 46E24 Grey_3_100.jpg",
+                    "/images/MF 46E24 Grey_4_100.jpg",
+                    "/images/MF 46E24 Grey_5_100.jpg",
+                    "/images/MF 46E24 Matt Black Rustic_6_100.jpg",
                 },
                 IsOpened = false
             });            
@@ -293,6 +287,7 @@ namespace Senserpage.Data
         public string PhotoLink { get; set; }
         public int Number { get; set; }
         public decimal Price { get; set; }
+        public decimal PriceAction { get; set; }
         public decimal TotalPrice { get; set; }
     }
 }

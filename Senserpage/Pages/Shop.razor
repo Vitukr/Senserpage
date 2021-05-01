@@ -109,16 +109,19 @@
         </div>
     </div>
     <div class="row" id="ourgoods">
-        <div class="col">   
+        <div class="col">
             <div class="textSpanBlue fontSize24">
                 <em><b>Електричні настільні печі SENSER</b></em>
+            </div>
+            <div class="textSpanBlue fontSize24">
+                <em style="color: red;"><b>Акція: - 10 % від звичайної ціни !!!</b></em>
             </div>
         </div>
     </div>
     @for(int i = 0; i < Goods.Count; i++)
     {
         var position = i % 2 == 0 ? "right" : "left";
-    <Good Position="@position" Name="@Goods[i].Name" Price="@Goods[i].Price" Attributes="@Goods[i].Attributes" ImageLinks="@Goods[i].ImageLinks" ImageLinksSmall="@Goods[i].ImageLinksSmall" ></Good>
+    <Good Position="@position" Name="@Goods[i].Name" Price="@Goods[i].Price" PriceAction="@Goods[i].PriceAction" Attributes="@Goods[i].Attributes" ImageLinks="@Goods[i].ImageLinks" ImageLinksSmall="@Goods[i].ImageLinksSmall" ></Good>
 
     <div class="emptydiv"></div>
     }
@@ -168,7 +171,7 @@
             @*<a class="nav-link text-white">SENSER</a>*@
             <a class="nav-link text-white">м. Київ; вул. Мурманська, 3</a>
             <a class="nav-link text-white" href="mailto:sensershops@gmail.com?subject=Senser">sensershops@gmail.com</a>
-            <a class="nav-link text-white" href="tel:380991644955">+38(099)164-49-55</a>
+            <a class="nav-link text-white" href="tel:380665228840">+38(066)522-88-40</a>
         </div>
     @*</footer>*@
         </div>

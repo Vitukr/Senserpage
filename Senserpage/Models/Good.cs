@@ -9,6 +9,7 @@ namespace Senserpage.Models
     {
         public string Name { get; set; }
         public decimal Price { get; set; }
+        public decimal PriceAction { get; set; }
         public List<string> Attributes { get; set; }
         public List<string> ImageLinks { get; set; }
         public List<string> ImageLinksSmall { get; set; }

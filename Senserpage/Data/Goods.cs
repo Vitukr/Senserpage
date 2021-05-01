@@ -16,10 +16,10 @@ namespace Senserpage.Data
         //}
         public List<Good> GetGoods()
         {
-            List<Good> list = new List<Good>();
+            List<Good> list = new();
             list.Add(new Good()
             {
-                Name = "MF 46E24 BLACK RUSTIC",
+                Name = "MF 46E24 MATT BLACK RUSTIC",
                 Price = 3299,
                 Attributes = new List<string>(){
                     "Конвекція",
@@ -41,12 +41,22 @@ namespace Senserpage.Data
                     "Гарантія - 12 місяців"
                 },
                 ImageLinks = new List<string>(){
-                    "/images/MF 46E24 Matt Black Rustic -фронт.jpg",
-                    "/images/MF 46E24 Matt Black Rustic -1.jpg",
-                    "/images/MF 46E24 Matt Black Rustic -2.jpg",
-                    "/images/MF 46E24 Matt Black Rustic -3.jpg",
-                    "/images/MF 46E24 Matt Black Rustic -4.jpg",
-                    "/images/MF 46E24 Matt Black Rustic -6.jpg"
+                    "/images/MF 46E24 Beige Rustic -1_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -2_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -3_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -4_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -5_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -6_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -7_1000.jpg",
+                },
+                ImageLinksSmall = new List<string>(){
+                    "/images/MF 46E24 Beige Rustic -1_400.jpg",
+                    "/images/MF 46E24 Beige Rustic -2_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -3_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -4_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -5_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -6_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -7_100.jpg",
                 },
                 IsOpened = false
             }); 
@@ -75,114 +85,22 @@ namespace Senserpage.Data
                     "Гарантія - 12 місяців"
                 },
                 ImageLinks = new List<string>(){
-                    "/images/MF 46E24 Beige Rustic -фронт.jpg",
-                    "/images/MF 46E24 Beige Rustic -1.jpg",
-                    "/images/MF 46E24 Beige Rustic -2.jpg",
-                    "/images/MF 46E24 Beige Rustic -3.jpg",
-                    "/images/MF 46E24 Beige Rustic -5.jpg",
-                    "/images/MF 46E24 Beige Rustic -6.jpg"
+                    "/images/MF 46E24 Beige Rustic -1_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -2_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -3_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -4_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -5_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -6_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -7_1000.jpg",
                 },
-                IsOpened = false
-            });
-
-            list.Add(new Good()
-            {
-                Name = "MF 46E24 MATT BURGUNDY",
-                Price = 2599,
-                Attributes = new List<string>(){
-                    "Конвекція",
-                    "Гриль",
-                    "Розморожування",
-                    "Термостат, °С - 280",
-                    "Потужність, кВт - 1,6",
-                    "Таймер, мин - 90",
-                    "Автовідключення",
-                    "Кількість режимів приготування - 5",
-                    "Гумовий ущільнювач (повна ізоляція)",
-                    "Комплектація: 2 лотка + 1 решітка",
-                    "Об’єм, л - 46",
-                    "Одинарне скло духовки",
-                    "Внутрішнє покриття - емаль легкої очистки",
-                    "Колір: червона панель + чорні стінки",
-                    "Габарити (ВхШхГ), см: 36 х 62 х 47",
-                    "Країна виробництва - Туреччина",
-                    "Гарантія - 12 місяців"
-                },
-                ImageLinks = new List<string>(){
-                    "/images/MF 46E24 Burgundy -фронт.jpg",
-                    "/images/MF 46E24 Burgundy -1.jpg",
-                    "/images/MF 46E24 Burgundy -2.jpg",
-                    "/images/MF 46E24 Burgundy -3.jpg",
-                    "/images/MF 46E24 Burgundy -4.jpg",
-                    "/images/MF 46E24 Burgundy -5.jpg"
-                },
-                IsOpened = false
-            });
-
-            list.Add(new Good()
-            {
-                Name = "MF 46E24 MATT BLACK",
-                Price = 2599,
-                Attributes = new List<string>(){
-                    "Конвекція",
-                    "Гриль",
-                    "Розморожування",
-                    "Термостат, °С - 280",
-                    "Потужність, кВт - 1,6",
-                    "Таймер, мин - 90",
-                    "Автовідключення",
-                    "Кількість режимів приготування - 5",
-                    "Гумовий ущільнювач (повна ізоляція)",
-                    "Комплектація: 2 лотка + 1 решітка",
-                    "Об’єм, л - 46",
-                    "Одинарне скло духовки",
-                    "Внутрішнє покриття - емаль легкої очистки",
-                    "Колір: чорна панель + червоні стінки",
-                    "Габарити (ВхШхГ), см: 36 х 62 х 47",
-                    "Країна виробництва - Туреччина",
-                    "Гарантія - 12 місяців"
-                },
-                ImageLinks = new List<string>(){
-                    "/images/MF 46E24 Matt Black -фронт.jpg",
-                    "/images/MF 46E24 Matt Black -1.jpg",
-                    "/images/MF 46E24 Matt Black -2.jpg",
-                    "/images/MF 46E24 Matt Black -3.jpg",
-                    "/images/MF 46E24 Matt Black -5.jpg",
-                    "/images/MF 46E24 Matt Black -6.jpg"
-                },
-                IsOpened = false
-            });
-
-            list.Add(new Good()
-            {
-                Name = "MF 46E24 GREY",
-                Price = 2599,
-                Attributes = new List<string>(){
-                    "Конвекція",
-                    "Гриль",
-                    "Розморожування",
-                    "Термостат, °С - 280",
-                    "Потужність, кВт - 1,6",
-                    "Таймер, мин - 90",
-                    "Автовідключення",
-                    "Кількість режимів приготування - 5",
-                    "Гумовий ущільнювач (повна ізоляція)",
-                    "Комплектація: 2 лотка + 1 решітка",
-                    "Об’єм, л - 46",
-                    "Одинарне скло духовки",
-                    "Внутрішнє покриття - емаль легкої очистки",
-                    "Колір: сірий",
-                    "Габарити (ВхШхГ), см: 36 х 62 х 47",
-                    "Країна виробництва - Туреччина",
-                    "Гарантія - 12 місяців"
-                },
-                ImageLinks = new List<string>(){
-                    "/images/MF 46E24 Grey -фронт.jpg",
-                    "/images/MF 46E24 Grey -1.jpg",
-                    "/images/MF 46E24 Grey -2.jpg",
-                    "/images/MF 46E24 Grey -3.jpg",
-                    "/images/MF 46E24 Grey -5.jpg",
-                    "/images/MF 46E24 Grey -6.jpg"
+                ImageLinksSmall = new List<string>(){
+                    "/images/MF 46E24 Beige Rustic -1_400.jpg",
+                    "/images/MF 46E24 Beige Rustic -2_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -3_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -4_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -5_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -6_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -7_100.jpg",
                 },
                 IsOpened = false
             });
@@ -211,17 +129,157 @@ namespace Senserpage.Data
                     "Гарантія - 12 місяців"
                 },
                 ImageLinks = new List<string>(){
-                    "/images/MF 46E24 Wooden_1.jpg",
-                    "/images/MF 46E24 Wooden_2.jpg",
-                    "/images/MF 46E24 Wooden_3.jpg",
-                    "/images/MF 46E24 Wooden_4.jpg",
-                    "/images/MF 46E24 Wooden_5.jpg",
-                    "/images/MF 46E24 Wooden_6.jpg",
-                    "/images/MF 46E24 Wooden_7.jpg",
-                    "/images/MF 46E24 Wooden_8.jpg",
+                    "/images/MF 46E24 Beige Rustic -1_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -2_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -3_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -4_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -5_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -6_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -7_1000.jpg",
+                },
+                ImageLinksSmall = new List<string>(){
+                    "/images/MF 46E24 Beige Rustic -1_400.jpg",
+                    "/images/MF 46E24 Beige Rustic -2_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -3_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -4_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -5_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -6_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -7_100.jpg",
                 },
                 IsOpened = false
             });
+
+            list.Add(new Good()
+            {
+                Name = "MF 46E24 MATT BURGUNDY",
+                Price = 2599,
+                Attributes = new List<string>(){
+                    "Конвекція",
+                    "Гриль",
+                    "Розморожування",
+                    "Термостат, °С - 280",
+                    "Потужність, кВт - 1,6",
+                    "Таймер, мин - 90",
+                    "Автовідключення",
+                    "Кількість режимів приготування - 5",
+                    "Гумовий ущільнювач (повна ізоляція)",
+                    "Комплектація: 2 лотка + 1 решітка",
+                    "Об’єм, л - 46",
+                    "Одинарне скло духовки",
+                    "Внутрішнє покриття - емаль легкої очистки",
+                    "Колір: червона передня панель + чорні стінки",
+                    "Габарити (ВхШхГ), см: 36 х 62 х 47",
+                    "Країна виробництва - Туреччина",
+                    "Гарантія - 12 місяців"
+                },
+                ImageLinks = new List<string>(){
+                    "/images/MF 46E24 Beige Rustic -1_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -2_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -3_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -4_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -5_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -6_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -7_1000.jpg",
+                },
+                ImageLinksSmall = new List<string>(){
+                    "/images/MF 46E24 Beige Rustic -1_400.jpg",
+                    "/images/MF 46E24 Beige Rustic -2_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -3_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -4_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -5_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -6_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -7_100.jpg",
+                },
+                IsOpened = false
+            });
+
+            list.Add(new Good()
+            {
+                Name = "MF 46E24 MATT BLACK",
+                Price = 2599,
+                Attributes = new List<string>(){
+                    "Конвекція",
+                    "Гриль",
+                    "Розморожування",
+                    "Термостат, °С - 280",
+                    "Потужність, кВт - 1,6",
+                    "Таймер, мин - 90",
+                    "Автовідключення",
+                    "Кількість режимів приготування - 5",
+                    "Гумовий ущільнювач (повна ізоляція)",
+                    "Комплектація: 2 лотка + 1 решітка",
+                    "Об’єм, л - 46",
+                    "Одинарне скло духовки",
+                    "Внутрішнє покриття - емаль легкої очистки",
+                    "Колір: чорна передня панель + червоні стінки",
+                    "Габарити (ВхШхГ), см: 36 х 62 х 47",
+                    "Країна виробництва - Туреччина",
+                    "Гарантія - 12 місяців"
+                },
+                ImageLinks = new List<string>(){
+                    "/images/MF 46E24 Beige Rustic -1_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -2_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -3_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -4_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -5_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -6_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -7_1000.jpg",
+                },
+                ImageLinksSmall = new List<string>(){
+                    "/images/MF 46E24 Beige Rustic -1_400.jpg",
+                    "/images/MF 46E24 Beige Rustic -2_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -3_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -4_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -5_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -6_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -7_100.jpg",
+                },
+                IsOpened = false
+            });
+
+            list.Add(new Good()
+            {
+                Name = "MF 46E24 GREY",
+                Price = 2599,
+                Attributes = new List<string>(){
+                    "Конвекція",
+                    "Гриль",
+                    "Розморожування",
+                    "Термостат, °С - 280",
+                    "Потужність, кВт - 1,6",
+                    "Таймер, мин - 90",
+                    "Автовідключення",
+                    "Кількість режимів приготування - 5",
+                    "Гумовий ущільнювач (повна ізоляція)",
+                    "Комплектація: 2 лотка + 1 решітка",
+                    "Об’єм, л - 46",
+                    "Одинарне скло духовки",
+                    "Внутрішнє покриття - емаль легкої очистки",
+                    "Колір: сірий",
+                    "Габарити (ВхШхГ), см: 36 х 62 х 47",
+                    "Країна виробництва - Туреччина",
+                    "Гарантія - 12 місяців"
+                },
+                ImageLinks = new List<string>(){
+                    "/images/MF 46E24 Beige Rustic -1_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -2_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -3_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -4_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -5_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -6_1000.jpg",
+                    "/images/MF 46E24 Beige Rustic -7_1000.jpg",
+                },
+                ImageLinksSmall = new List<string>(){
+                    "/images/MF 46E24 Beige Rustic -1_400.jpg",
+                    "/images/MF 46E24 Beige Rustic -2_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -3_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -4_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -5_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -6_100.jpg",
+                    "/images/MF 46E24 Beige Rustic -7_100.jpg",
+                },
+                IsOpened = false
+            });            
 
             return list;
         }

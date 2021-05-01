@@ -14,6 +14,9 @@ namespace Senserpage.Models
 
         [Required]
         [StringLength(20, ErrorMessage = "Много цифр в номере телефона")]
+        [Phone]
         public string Phone { get; set; }
+        [EmailAddress]
+        public string Email { get; set; }
     }
 }

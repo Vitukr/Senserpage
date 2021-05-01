@@ -31,18 +31,21 @@
         </div>
         <div class="col">
             <div class="text-center">
-            <Photo Width="400px" Link="@MainImage" OnClick="@(() => ShowBigPhoto(MainImage, ImageLinks))">                
+            <Photo Width="400px" Link="@MainImageSmall" OnClick="@(() => ShowBigPhoto(MainImage, ImageLinks))">                
             </Photo>
             </div>
             <div class="text-center">
-            @for(int i = 0; i < ImageLinks.Count; i++)
-            {
-                if(MainImage != ImageLinks[i])
+                @if (ImageLinksSmall != null)
                 {
-                    var strLink = ImageLinks[i];
-                    <Photo Width="100px" Link="@ImageLinks[i]" OnClick="@(() => ShowBigPhoto(strLink, ImageLinks))"></Photo>
+                    @for (int i = 0; i < ImageLinksSmall.Count; i++)
+                    {
+                        if (MainImageSmall != ImageLinksSmall[i])
+                        {
+                            var strLink = ImageLinks[i];
+                            <Photo Width="100px" Link="@ImageLinksSmall[i]" OnClick="@(() => ShowBigPhoto(strLink, ImageLinks))"></Photo>
+                        }
+                    }
                 }
-            }
             </div>
         </div>
     }
@@ -50,18 +53,21 @@
     {
         <div class="col">
             <div class="text-center">
-            <Photo Width="400px" Link="@MainImage" OnClick="@(() => ShowBigPhoto(MainImage, ImageLinks))">                
+            <Photo Width="400px" Link="@MainImageSmall" OnClick="@(() => ShowBigPhoto(MainImage, ImageLinks))">                
             </Photo>
             </div>
             <div class="text-center">
-            @for(int i = 0; i < ImageLinks.Count; i++)
-            {
-                if(MainImage != ImageLinks[i])
+                @if (ImageLinksSmall != null)
                 {
-                    var strLink = ImageLinks[i];
-                    <Photo Width="100px" Link="@ImageLinks[i]" OnClick="@(() => ShowBigPhoto(strLink, ImageLinks))"></Photo>
+                    @for (int i = 0; i < ImageLinksSmall.Count; i++)
+                    {
+                        if (MainImageSmall != ImageLinksSmall[i])
+                        {
+                            var strLink = ImageLinks[i];
+                            <Photo Width="100px" Link="@ImageLinksSmall[i]" OnClick="@(() => ShowBigPhoto(strLink, ImageLinks))"></Photo>
+                        }
+                    }
                 }
-            }
             </div>
         </div>
         <div class="col">
@@ -116,12 +122,16 @@
     public List<string> Attributes { get; set; }
     [Parameter]
     public List<string> ImageLinks { get; set; }
+    [Parameter]
+    public List<string> ImageLinksSmall { get; set; }
 
     string MainImage { get; set; }
+    string MainImageSmall { get; set; }
 
     protected override void OnParametersSet()
     {
-        MainImage = ImageLinks.Count > 0 ? ImageLinks[0] : "";
+        MainImage = ImageLinks?.Count > 0 ? ImageLinks[0] ?? "" : "";
+        MainImageSmall = ImageLinksSmall?.Count > 0 ? ImageLinksSmall[0] ?? "" : "";
     }
 
     [Parameter]

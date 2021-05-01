@@ -118,7 +118,7 @@
     @for(int i = 0; i < Goods.Count; i++)
     {
         var position = i % 2 == 0 ? "right" : "left";
-    <Good Position="@position" Name="@Goods[i].Name" Price="@Goods[i].Price" Attributes="@Goods[i].Attributes" ImageLinks="@Goods[i].ImageLinks" ></Good>
+    <Good Position="@position" Name="@Goods[i].Name" Price="@Goods[i].Price" Attributes="@Goods[i].Attributes" ImageLinks="@Goods[i].ImageLinks" ImageLinksSmall="@Goods[i].ImageLinksSmall" ></Good>
 
     <div class="emptydiv"></div>
     }
@@ -177,6 +177,8 @@
 
 <OrderModal Title="Замовлення" IsOpened="@OrderOpened" DoIsOpened="@CloseModalOrder">
     <ModalBody>
+        @if (Senserpage.Data.Goods.CartGoods.Count > 0)
+        {
             <table class="container-fluid" cellpadding="2" cellspacing="0">
                 <thead>
                     <tr>
@@ -187,31 +189,31 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @for(int i = 0; i < Senserpage.Data.Goods.CartGoods.Count; i++)
+                    @for (int i = 0; i < Senserpage.Data.Goods.CartGoods.Count; i++)
                     {
                         var index = i;
                         var good = Senserpage.Data.Goods.CartGoods[i];
-                    <tr>
-                        <td><img width="100px" src="@good.PhotoLink"/></td>
-                        <td class="textSpan fontSize20 width40"><span>@good.Name</span></td>
-                        <td class="textSpan fontSize20"><span>@good.Price грн.</span></td>
-                        <td class="textSpan fontSize20">
-                        <button class="btn" @onclick="@(() => MinusNumber(index))">
-                            <i class="fa fa-minus" aria-hidden="true"></i>
-                        </button><span>@good.Number</span>
-                        <button class="btn" @onclick="@(() => AddNumber(index))">
-                            <i class="fa fa-plus" aria-hidden="true"></i>
-                        </button>
-                        <button class="btn" @onclick="@(() => RemoveNumber(index))">
-                            <i class="fa fa-times redcolor" aria-hidden="true"></i>
-                        </button>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td><img width="100" src="@good.PhotoLink" /></td>
+                            <td class="textSpan fontSize20 width40"><span>@good.Name</span></td>
+                            <td class="textSpan fontSize20"><span>@good.Price грн.</span></td>
+                            <td class="textSpan fontSize20">
+                                <button class="btn" @onclick="@(() => MinusNumber(index))">
+                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                </button><span>@good.Number</span>
+                                <button class="btn" @onclick="@(() => AddNumber(index))">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                </button>
+                                <button class="btn" @onclick="@(() => RemoveNumber(index))">
+                                    <i class="fa fa-times redcolor" aria-hidden="true"></i>
+                                </button>
+                            </td>
+                        </tr>
                     }
-                    @if(Senserpage.Data.Goods.CartGoods.Count > 0)
+                    @if (Senserpage.Data.Goods.CartGoods.Count > 0)
                     {
                         decimal total = 0;
-                        for(int i = 0; i < Senserpage.Data.Goods.CartGoods.Count; i++)
+                        for (int i = 0; i < Senserpage.Data.Goods.CartGoods.Count; i++)
                         {
                             total += Senserpage.Data.Goods.CartGoods[i].Price * Senserpage.Data.Goods.CartGoods[i].Number;
                         }
@@ -223,7 +225,7 @@
                     }
                 </tbody>
             </table>
-            @if(Senserpage.Data.Goods.CartGoods.Count > 0)
+            @*@if(Senserpage.Data.Goods.CartGoods.Count > 0)
             {
             <EditForm Model="@orderForm" OnValidSubmit="@SubmitOrder">
             <DataAnnotationsValidator />
@@ -234,10 +236,29 @@
 
             <button class="btn btn-primary" type="submit">Оформити замовлення</button>
             </EditForm>
-            }
+            }*@
+        }
+        else
+        {
+            <div>@SentOrder</div>
+        }
     </ModalBody>
     <ModalFooter>
-        <div>@SentOrder</div>
+        @if (Senserpage.Data.Goods.CartGoods.Count > 0)
+        {
+        <EditForm Model="@orderForm" OnValidSubmit="@SubmitOrder">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <InputText id="name" @bind-Value="orderForm.Name" placeholder="Ім'я" />
+            <InputText id="phone" @bind-Value="orderForm.Phone" placeholder="Телефон" />
+            <InputText id="phone" @bind-Value="orderForm.Email" placeholder="Електронна пошта" />
+            <br />
+            <button class="btn btn-primary" type="submit">Оформити замовлення</button>
+        </EditForm>
+        }
+        @*<div>@SentOrder</div>*@
+        <br />
         <button class="btn btn-primary" @onclick="CloseModalOrder">Закрити</button>
     </ModalFooter>
 </OrderModal>
@@ -508,11 +529,11 @@
 
             if(response.IsSuccessStatusCode)
             {
-                SentOrder = "Замовлення відправлене.";
+                SentOrder = "Дякуємо. Ваше замовлення прийняте. Найближчим часом з Вами зв’яжуться.";
             }
             else
             {
-                SentOrder = "Замовлення не відправлене.";
+                SentOrder = "Замовлення не відправлене. Перевірте правильність заповнення форми та повторіть спробу";
             }
         }
     }

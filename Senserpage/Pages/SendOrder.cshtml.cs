@@ -67,7 +67,7 @@ namespace Senserpage.Pages
         {
             var builder = new BodyBuilder();
 
-            string message = $@"<div style='font-size: 2em;'><span>Заказ от:</span><br /><span>Имя: {orderForm.Name}</span><br /><span>Телефон: {orderForm.Phone}</span></div>";
+            string message = $@"<div style='font-size: 2em;'><span>Заказ от:</span><br /><span>Имя: {orderForm.Name}</span><br /><span>Телефон: {orderForm.Phone}</span><br /><span>Електронна пошта: {orderForm.Email}</span></div>";
 
             string messageHtml = $"<table style='font-size: 2em;' cellpadding='5' cellspacing='0'><thead><tr><td>Фото</td>" +
             "<td style='width: 40%'>Наименование</td><td>Цена</td><td>Количество</td></tr></thead><tbody>";

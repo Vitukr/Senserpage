@@ -41,29 +41,38 @@
                     {
                         var index = i;
                         var good = Senserpage.Data.Goods.CartGoods[i];
-                        <tr>
-                            <td><img width="100" src="@good.PhotoLink" /></td>
-                            <td class="textSpan fontSize20 width40"><span>@good.Name</span></td>
+                    <tr>
+                        <td><img width="100" src="@good.PhotoLink" /></td>
+                        <td class="textSpan fontSize20 width40"><span>@good.Name</span></td>
+                        @if (good.PriceAction == 0)
+                        {
                             <td class="textSpan fontSize20"><span>@good.Price грн.</span></td>
-                            <td class="textSpan fontSize20">
-                                <button class="btn" @onclick="@(() => MinusNumber(index))">
-                                    <i class="fa fa-minus" aria-hidden="true"></i>
-                                </button><span>@good.Number</span>
-                                <button class="btn" @onclick="@(() => AddNumber(index))">
-                                    <i class="fa fa-plus" aria-hidden="true"></i>
-                                </button>
-                                <button class="btn" @onclick="@(() => RemoveNumber(index))">
-                                    <i class="fa fa-times redcolor" aria-hidden="true"></i>
-                                </button>
-                            </td>
-                        </tr>
+                        }
+                        else
+                        {
+                            <td class="textSpan fontSize20"><span>@good.PriceAction грн.</span></td>
+                        }
+
+                        <td class="textSpan fontSize20">
+                            <button class="btn" @onclick="@(() => MinusNumber(index))">
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                            </button><span>@good.Number</span>
+                            <button class="btn" @onclick="@(() => AddNumber(index))">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                            <button class="btn" @onclick="@(() => RemoveNumber(index))">
+                                <i class="fa fa-times redcolor" aria-hidden="true"></i>
+                            </button>
+                        </td>
+                    </tr>
                     }
                     @if (Senserpage.Data.Goods.CartGoods.Count > 0)
                     {
                         decimal total = 0;
                         for (int i = 0; i < Senserpage.Data.Goods.CartGoods.Count; i++)
                         {
-                            total += Senserpage.Data.Goods.CartGoods[i].Price * Senserpage.Data.Goods.CartGoods[i].Number;
+                            total += Senserpage.Data.Goods.CartGoods[i].PriceAction == 0 ? Senserpage.Data.Goods.CartGoods[i].Price * Senserpage.Data.Goods.CartGoods[i].Number :
+                              Senserpage.Data.Goods.CartGoods[i].PriceAction * Senserpage.Data.Goods.CartGoods[i].Number;
                         }
                         <tr>
                             <td class="textSpan fontSize20">Всього</td>
@@ -132,19 +141,28 @@
                         var index = i;
                         var good = Senserpage.Data.Goods.CartGoods[i];
                     <tr>
-                        <td><img width="100" src="@good.PhotoLink"/></td>
+                        <td><img width="100" src="@good.PhotoLink" /></td>
                         <td class="textSpan fontSize20 width40"><span>@good.Name</span></td>
-                        <td class="textSpan fontSize20"><span>@good.Price грн.</span></td>
+
+                        @if (good.PriceAction == 0)
+                        {
+                            <td class="textSpan fontSize20"><span>@good.Price грн.</span></td>
+                        }
+                        else
+                        {
+                            <td class="textSpan fontSize20"><span>@good.PriceAction грн.</span></td>
+                        }
+
                         <td class="textSpan fontSize20">
-                        <button class="btn" @onclick="@(() => MinusNumber(index))">
-                            <i class="fa fa-minus" aria-hidden="true"></i>
-                        </button><span>@good.Number</span>
-                        <button class="btn" @onclick="@(() => AddNumber(index))">
-                            <i class="fa fa-plus" aria-hidden="true"></i>
-                        </button>
-                        <button class="btn" @onclick="@(() => RemoveNumber(index))">
-                            <i class="fa fa-times redcolor" aria-hidden="true"></i>
-                        </button>
+                            <button class="btn" @onclick="@(() => MinusNumber(index))">
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                            </button><span>@good.Number</span>
+                            <button class="btn" @onclick="@(() => AddNumber(index))">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                            <button class="btn" @onclick="@(() => RemoveNumber(index))">
+                                <i class="fa fa-times redcolor" aria-hidden="true"></i>
+                            </button>
                         </td>
                     </tr>
                     }
@@ -153,7 +171,8 @@
                         decimal total = 0;
                         for(int i = 0; i < Senserpage.Data.Goods.CartGoods.Count; i++)
                         {
-                            total += Senserpage.Data.Goods.CartGoods[i].Price * Senserpage.Data.Goods.CartGoods[i].Number;
+                            total += Senserpage.Data.Goods.CartGoods[i].PriceAction == 0 ?Senserpage.Data.Goods.CartGoods[i].Price * Senserpage.Data.Goods.CartGoods[i].Number :
+                              Senserpage.Data.Goods.CartGoods[i].PriceAction * Senserpage.Data.Goods.CartGoods[i].Number;
                         }
                         <tr>
                             <td class="textSpan fontSize20">Всього</td>

@@ -125,7 +125,15 @@
 <ModalPopUp Title="Інфо" IsOpened="@IsOpened" DoIsOpened="@CloseModal" NameGood="@Name" PriceGood="@Price" LinkGood="@MainImage" >
     <ModalBody>
         <h4>Товар @Name доданий до кошика.</h4>
-        <h4>Ціна @Price грн.</h4>
+        @if (PriceAction == 0)
+        {
+            <h4>Ціна @Price грн.</h4>
+        }
+        else
+        {
+            <h4>Ціна @PriceAction грн.</h4>
+        }
+
     </ModalBody>
     <ModalFooter>
         <button class="btn btn-primary" @onclick="CloseModal">Закрити</button>

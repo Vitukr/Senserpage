@@ -148,7 +148,7 @@ namespace Senserpage.Data
 
             list.Add(new Good()
             {
-                Name = "MF 46E24 MATT BURGUNDY",
+                Name = "MF 46E24 BURGUNDY",
                 Price = 2599,
                 PriceAction = 2339,
                 Attributes = new List<string>(){

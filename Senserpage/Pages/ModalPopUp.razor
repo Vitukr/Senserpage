@@ -113,7 +113,7 @@
             <ValidationMessage For=@(() => orderForm.Phone) style="color:red;" />
             <InputText id="phone" @bind-Value="orderForm.Phone" placeholder="Телефон" />
 
-            <InputText id="email" @bind-Value="orderForm.Email" placeholder="Ел.пошта (не обов'язково)" />
+            <InputText id="email" @bind-Value="orderForm.Email" placeholder="Ел.пошта (не обов'язково)" style="width:230px" />
             <br />
             <button class="btn btn-primary" type="submit">Оформити замовлення</button>
         </EditForm>

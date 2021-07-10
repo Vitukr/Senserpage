@@ -63,8 +63,8 @@ namespace Senserpage.Data
             list.Add(new Good()
             {
                 Name = "MF 46E24 BEIGE RUSTIC",
-                Price = 3499,
-                PriceAction = 3149,
+                Price = 0,
+                PriceAction = 0,
                 Attributes = new List<string>(){
                     "Конвекція",
                     "Гриль",
